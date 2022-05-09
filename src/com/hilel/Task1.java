@@ -4,9 +4,12 @@ public class Task1 {
 
     public static void main(String[] args) {
 
-       float a = 10f;
-       float b = 12f;
+       int a = 10;
+       int b = 12;
 
-        System.out.println("Вы прошли за один час " + (a/b) + " тысяч шагов" );
+       float c = a;
+
+        System.out.println("Вы прошли за один час " + (c/b) + " тысяч шагов." );
     }
 }
+

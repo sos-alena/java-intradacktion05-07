@@ -1,0 +1,63 @@
+package homework;
+
+import static java.lang.Math.pow;
+
+public class HoumLesson3 {
+
+    public static void main(String[] args) {
+
+        float D1 = 1.0f;
+        System.out.println("Диаметр шара снеговика (первый) - " + D1 + " м");
+
+        float D2 = 0.5f;
+        System.out.println("Диаметр шара снеговика (второй) - " + D2 + " м");
+
+        float D3 = 0.2f;
+        System.out.println("Диаметр шара снеговика (третий) - " + D3 + " ");
+
+        float p = 0.7f;
+        System.out.println("Kоэффициент плотности снежных шаров = " + p + " кг/м3");
+
+        System.out.println();
+        System.out.println("Найти: сколько весит весь снеговик?");
+        System.out.println();
+        System.out.println("РЕШЕНИЕ:");
+
+        System.out.println("Формула массы тела: m = pV, где m - масса тела, " +
+                "p - плотность вещества, V - его объем."
+                + " V = 4/3πR^3.");
+
+        System.out.println("Найдем объем (V) каждого шара по формуле:");
+        System.out.println();
+
+        double V1 = ((4 * 3.14 * pow(D1 / 2, 3)) / 3);
+        System.out.println("Объем первого шара V1 - " + V1 + " м3;");
+
+        double V2 = ((4 * 3.14 * pow(D2 / 2, 3)) / 3);
+        System.out.println("Объем первого шара V1 - " + V2 + " м3;");
+
+        double V3 = ((4 * 3.14 * pow(D3 / 2, 3)) / 3);
+        System.out.println("Объем первого шара V1 - " + V3 + " м3;");
+
+        System.out.println();
+        System.out.println("Найдем массу (m) каждого шара по формуле m = pV:");
+        System.out.println();
+
+        double m1 = (p * V1);
+        System.out.println("Масса первого шара m1 - " + m1 + " кг;");
+
+        double m2 = (p * V2);
+        System.out.println("Масса первого шара m2 - " + m2 + " кг;");
+
+        double m3 = (p * V3);
+        System.out.println("Масса первого шара m3 - " + m3 + " кг;");
+
+        System.out.println();
+        System.out.println("Найдем вес всего снеговика: m1 + m2 + m3");
+        System.out.println();
+        double M = (m1 + m2 + m3);
+        System.out.println("Вес всего снеговика - " + M + " кг.");
+
+
+    }
+}
