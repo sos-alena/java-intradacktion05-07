@@ -7,10 +7,10 @@ public class MatchOperations {
         int a = 10;
         int b = 3;
 
-        int c = a + b;
+        int m = a + b;
 
 
-        System.out.println("a + b = " + c);
+        System.out.println("a + b = " + m);
         System.out.println("a - b = " + (a - b));
         System.out.println("a * b = " + (a * b));
         System.out.println("a / b = " + (a / b));
