@@ -1,6 +1,5 @@
 package homework;
 
-import static java.lang.Math.pow;
 
 public class HoumLesson3 {
 
@@ -30,13 +29,13 @@ public class HoumLesson3 {
         System.out.println("Найдем объем (V) каждого шара по формуле:");
         System.out.println();
 
-        double V1 = (4.0 / 3 * 3.14 * pow(D1 / 2, 3));
+        double V1 = (4.0 / 3 * Math.PI * Math.pow(D1 / 2, 3));
         System.out.println("Объем первого шара V1 - " + V1 + " м3;");
 
-        double V2 = (4.0 / 3 * 3.14 * pow(D2 / 2, 3));
+        double V2 = (4.0 / 3 * Math.PI * Math.pow(D2 / 2, 3));
         System.out.println("Объем первого шара V1 - " + V2 + " м3;");
 
-        double V3 = (4.0 / 3 * 3.14 * pow(D3 / 2, 3));
+        double V3 = (4.0 / 3 * Math.PI * Math.pow(D3 / 2, 3));
         System.out.println("Объем первого шара V1 - " + V3 + " м3;");
 
         System.out.println();
