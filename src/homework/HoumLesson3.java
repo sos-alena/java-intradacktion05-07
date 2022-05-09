@@ -2,14 +2,14 @@ package homework;
 public class HoumLesson3 {
         public static void main(String[] args) {
 
-            float D1 = 1.0f;
-            System.out.println("Диаметр шара снеговика (первый) - " + D1 + " м");
+            float R1 = 1.0f;
+            System.out.println("Радиус шара снеговика (первый) R1 - " + R1 + " м");
 
-            float D2 = 0.5f;
-            System.out.println("Диаметр шара снеговика (второй) - " + D2 + " м");
+            float R2 = 0.5f;
+            System.out.println("Радиус шара снеговика (второй) R2 - " + R2 + " м");
 
-            float D3 = 0.2f;
-            System.out.println("Диаметр шара снеговика (третий) - " + D3 + " ");
+            float R3 = 0.2f;
+            System.out.println("Радиус шара снеговика (третий) R3 - " + R3 + " м");
 
             float p = 0.7f;
             System.out.println("Kоэффициент плотности снежных шаров = " + p + " кг/м3");
@@ -26,13 +26,13 @@ public class HoumLesson3 {
             System.out.println("Найдем объем (V) каждого шара по формуле:");
             System.out.println();
 
-            double V1 = (4.0 / 3 * Math.PI * Math.pow(D1 / 2, 3));
+            double V1 = (4.0 / 3 * Math.PI * Math.pow(R1, 3));
             System.out.println("Объем первого шара V1 - " + V1 + " м3;");
 
-            double V2 = (4.0 / 3 * Math.PI * Math.pow(D2 / 2, 3));
+            double V2 = (4.0 / 3 * Math.PI * Math.pow(R2, 3));
             System.out.println("Объем первого шара V1 - " + V2 + " м3;");
 
-            double V3 = (4.0 / 3 * Math.PI * Math.pow(D3 / 2, 3));
+            double V3 = (4.0 / 3 * Math.PI * Math.pow(R3, 3));
             System.out.println("Объем первого шара V1 - " + V3 + " м3;");
 
             System.out.println();
