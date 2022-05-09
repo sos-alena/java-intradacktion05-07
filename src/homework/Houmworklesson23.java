@@ -8,14 +8,14 @@ public class Houmworklesson23 {
 
         String a = "10";
         String b = "20";
-        String z;
+        String m;
 
         System.out.println("a = " + a);
         System.out.println("b = " + b);
 
-        z = a;
+        m = a;
         a = b;
-        b = z;
+        b = m;
 
         System.out.println();
 
