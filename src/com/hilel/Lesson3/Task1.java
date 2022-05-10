@@ -1,4 +1,4 @@
-package com.hilel;
+package com.hilel.Lesson3;
 
 public class Task1 {
 

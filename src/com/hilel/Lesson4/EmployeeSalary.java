@@ -1,10 +1,8 @@
-package com.hilel;
+package com.hilel.Lesson4;
 
 public class EmployeeSalary {
 
     public static void main(String[] args) {
-
-
         float W1 = 3000f;
         float W2 = 4500f;
         float W3 = 5800f;

@@ -1,4 +1,4 @@
-package com.hilel;
+package com.hilel.Lesson2;
 
 public class Variubles {
 
