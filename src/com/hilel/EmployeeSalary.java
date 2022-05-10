@@ -18,9 +18,12 @@ public class EmployeeSalary {
         System.out.println("Salary for 10 years:");
         System.out.println();
 
-        float W10 = (W1 * 12 * 10);
-        float W20 = (W2 * 12 * 10);
-        float W30 = (W3 * 12 * 10);
+        byte mounth = 12;
+        byte year = 10;
+
+        float W10 = (W1 * mounth * year);
+        float W20 = (W2 * mounth * year);
+        float W30 = (W3 * mounth * year);
 
         System.out.println("Ivanov A - " + W10 + " usd");
         System.out.println("Sidorov B - " + W20 + " usd");
