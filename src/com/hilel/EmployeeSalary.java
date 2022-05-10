@@ -5,9 +5,9 @@ public class EmployeeSalary {
     public static void main(String[] args) {
 
 
-        float W1 = 15000f;
-        float W2 = 25000f;
-        float W3 = 30000f;
+        float W1 = 3000f;
+        float W2 = 4500f;
+        float W3 = 5800f;
         System.out.println("Employee Salary per mounth:");
         System.out.println();
 
@@ -51,5 +51,10 @@ public class EmployeeSalary {
         System.out.println("Ivanov A - " + N1);
         System.out.println("Sidorov B - " + N2);
         System.out.println("Petrov G - " + N3);
+
+        System.out.println();
+        System.out.println("Average salary of all employees for 10 years:");
+
+        System.out.println((N1+N2+N3) / 3);
     }
 }
