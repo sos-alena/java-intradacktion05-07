@@ -19,7 +19,7 @@ public class HoumLesson42 {
     }
 
     public static double expense(float distance, float petrol) {
-        return (int) (petrol / distance * 100);
+        return (double) (petrol / distance * 100);
 
     }
 }
