@@ -27,17 +27,20 @@ public class HomeWork5 {
         int management = Integer.parseInt(reader.readLine());
 
 
+        averegPoint(math, geograf, english, program, management);
+
+    }
+
+    private static void averegPoint(int math, int geograf, int english, int program, int management) {
         if (math >= 1 && math <= 12 && geograf >= 1 && geograf <= 12 && english >= 1 && english <= 12 && program >= 1 && program <= 12 && management >= 1 && management <= 12) {
             float avg = ((math + geograf + english + program + management) / 5);
             System.out.println("Average score in five subjects: " + avg);
 
             Rating(avg);
-
-
+        } else {
             System.out.println();
             System.out.println("The entered data is not valid");
         }
-
     }
 
     public static void Rating(float avg) {
