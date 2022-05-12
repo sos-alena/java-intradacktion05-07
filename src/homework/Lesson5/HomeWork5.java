@@ -12,35 +12,31 @@ public class HomeWork5 {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Student scores in five subjects: ");
         System.out.println("Enter scores for higher mathematics:");
-        int number = Integer.parseInt(reader.readLine());
-        Integer i = Integer.parseInt(String.valueOf(number));
+        int math = Integer.parseInt(reader.readLine());
 
         System.out.println("Enter points for Geography:");
-        int number1 = Integer.parseInt(reader.readLine());
-        Integer a = Integer.parseInt(String.valueOf(number1));
+        int geograf = Integer.parseInt(reader.readLine());
 
         System.out.println("Enter scores for English:");
-        int number2 = Integer.parseInt(reader.readLine());
-        Integer e = Integer.parseInt(String.valueOf(number2));
+        int english = Integer.parseInt(reader.readLine());
 
         System.out.println("Enter points for the subject Programming:");
-        int number3 = Integer.parseInt(reader.readLine());
-        Integer p = Integer.parseInt(String.valueOf(number3));
+        int program = Integer.parseInt(reader.readLine());
 
         System.out.println("Enter scores for the subject Management:");
-        int number4 = Integer.parseInt(reader.readLine());
-        Integer m = Integer.parseInt(String.valueOf(number4));
+        int management = Integer.parseInt(reader.readLine());
 
-        System.out.println();
-        float avg = averageRating(i, a, e, p, m);
-        System.out.println("Average score in five subjects: " + avg);
 
-        Rating(avg);
+        if (math >= 1 && math <= 12 && geograf >= 1 && geograf <= 12 && english >= 1 && english <= 12 && program >= 1 && program <= 12 && management >= 1 && management <= 12) {
+            float avg = ((math + geograf + english + program + management) / 5);
+            System.out.println("Average score in five subjects: " + avg);
 
-    }
+            Rating(avg);
 
-    public static float averageRating(int i, int a, int e, int p, int m) {
-        return (float) ((i + a + e + p + m) / 5);
+
+            System.out.println();
+            System.out.println("The entered data is not valid");
+        }
 
     }
 
@@ -73,4 +69,5 @@ public class HomeWork5 {
     }
 
 }
+
 
