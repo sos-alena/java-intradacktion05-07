@@ -10,14 +10,12 @@ public class HomeWork52 {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter the dimensions of your bag: width, length, height (sm):");
-        int number = Integer.parseInt(reader.readLine());
-        Integer w = Integer.parseInt(String.valueOf(number));
+        int w = Integer.parseInt(reader.readLine());
 
-        int number2 = Integer.parseInt(reader.readLine());
-        Integer l = Integer.parseInt(String.valueOf(number2));
+        int l = Integer.parseInt(reader.readLine());
 
-        int number3 = Integer.parseInt(reader.readLine());
-        Integer h = Integer.parseInt(String.valueOf(number3));
+        int h = Integer.parseInt(reader.readLine());
+
 
 
         handLagg(w, l, h);
