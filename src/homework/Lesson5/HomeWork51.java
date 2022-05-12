@@ -24,6 +24,12 @@ public class HomeWork51 {
         System.out.println("Enter scores for English:");
         int English = scanner.nextInt();
 
+        averegRathing(Mathematics, Geography, Programming, Management, English);
+
+
+    }
+
+    private static void averegRathing(int Mathematics, int Geography, int Programming, int Management, int English) {
         System.out.println();
         if (Mathematics >= 1 && Mathematics <= 12 && Geography >= 1 && Geography <= 12 && Programming >= 1 && Programming <= 12 && Management >= 1 && Management <= 12 && English >= 1 && English <= 12) {
             float avg = ((Mathematics + Geography + Programming + Management + English) / 5);
@@ -39,8 +45,6 @@ public class HomeWork51 {
         } else {
             System.out.println("Incorrectly entered data for calculating the average score.");
         }
-
-
     }
 
 }
