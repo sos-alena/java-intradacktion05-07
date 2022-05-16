@@ -16,10 +16,7 @@ public class HomeWork52 {
 
         int h = Integer.parseInt(reader.readLine());
 
-
-
         handLagg(w, l, h);
-
 
     }
 
