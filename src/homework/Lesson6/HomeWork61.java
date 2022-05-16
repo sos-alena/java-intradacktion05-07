@@ -1,8 +1,12 @@
 package homework.Lesson6;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class HomeWork61 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         int number = generateRandom();
         System.out.println(number);
@@ -13,6 +17,7 @@ public class HomeWork61 {
         int number2 = generateRandom();
         System.out.println(number2);
 
+
         minNumber(number, number1, number2);
 
     }
@@ -22,15 +27,16 @@ public class HomeWork61 {
     }
 
     public static void minNumber(int N, int N2, int N3) {
-        if (N < N2 && N < N3) {
+        if (N < N2 && N < N3 || N == N2 && N2 < N3 || N == N3 && N3 < N2) {
             System.out.println("Min number " + N);
-        } else if (N2 < N && N2 < N3) {
+        } else if (N2 < N && N2 < N3 || N2 == N && N < N3 || N2 == N3 && N3 < N) {
             System.out.println("Min number " + N2);
-        } else if (N3 < N && N3 < N2) {
+        } else if (N3 < N && N3 < N2 || N3 == N2 && N2 < N || N3 == N && N < N2) {
             System.out.println("Min number " + N3);
         } else {
-            System.out.println("Two or three identical numbers");
+            System.out.println("All three numbers are equal");
         }
+
 
     }
 }
