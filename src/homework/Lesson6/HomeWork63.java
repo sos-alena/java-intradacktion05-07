@@ -15,29 +15,18 @@ public class HomeWork63 {
         int cans3 = Integer.parseInt(reader.readLine());
 
 
+        result(apple, cans, cans2, cans);
 
-        double z = harvest2(apple, cans);
-        double x = harvest(apple, cans);
-        double m = harvest2((int) x, cans2);
-        double d = harvest((int) x, cans2);
-        double s = harvest2((int) d, cans3);
-        double w = harvest((int) d, cans3);
+    }
 
+    public static void result(int apple, int cans, int cans2, int cans3) {
 
+        double z = (apple / cans);
+        double m = ((apple % cans) / cans2);
+        double s = (((apple % cans) / cans2) / cans3);
         System.out.println("Big banks " + (int) z);
         System.out.println("Medium banks " + (int) m);
         System.out.println("Small banks " + (int) s);
-
-
-    }
-
-    private static double harvest(int a, int c) {
-        return (double) (a % c);
-
-    }
-
-    private static double harvest2(int a, int c) {
-        return (double) (a / c);
 
     }
 
