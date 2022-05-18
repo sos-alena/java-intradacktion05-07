@@ -29,15 +29,21 @@ public class MinNumber {
     public static int minNumber(int N, int N2, int N3) {
 
         if (N < N2 && N < N3 || N == N2 && N2 < N3 || N == N3 && N3 < N2) {
-            return (int) (N);
-        } else if (N2 < N && N2 < N3 || N2 == N && N < N3 || N2 == N3 && N3 < N) {
-            return (int) (N2);
-        } else if (N3 < N && N3 < N2 || N3 == N2 && N2 < N || N3 == N && N < N2) {
-            return (int) (N3);
+            return (N);
+        } else if (N2 < N && N2 < N3 || N2 == N3 && N3 < N) {
+            return (N2);
+        } else if (N3 < N) {
+            return (N3);
         } else {
             System.out.println("All three numbers are equal");
         }
         return 0;
+
+
+
+
+
+
     }
 
 }

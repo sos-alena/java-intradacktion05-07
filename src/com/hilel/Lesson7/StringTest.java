@@ -1,4 +1,4 @@
-package com.hilel;
+package com.hilel.Lesson7;
 
 public class StringTest {
 
