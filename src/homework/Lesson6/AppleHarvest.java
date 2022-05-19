@@ -21,29 +21,28 @@ public class AppleHarvest {
 
         System.out.println();
 
-        int result = cansBig(apple, cans);
-        System.out.println("Big banks for 5 apples - " + result + " banks;");
+        int result = cans(apple, cans);
+        System.out.println("ig banks for 5 apples - " + result + " banks;");
 
-        int result2 = cansMidle(apple, cans, cans2);
-        System.out.println("Medium banks for 3 apples - " + result2 + " banks;");
+        int result2 = cans2(apple, cans);
+        int result22 = cans(result2, cans2);
+        System.out.println("Medium banks for 3 apples - " + result22 + " banks;");
 
-        int result3 = cansSmall(apple, cans, cans2, cans3);
-        System.out.println("Small banks for 1 apple - " + result3 + " banks;");
+        int result3 = cans2(result2, cans2);
+        int result33 = cans(result3, cans3);
+        System.out.println("Small banks for 1 apple - " + result33 + " banks;");
 
 
     }
 
-    public static int cansBig(int apple, int cans) {
+    public static int cans(int apple, int cans) {
         return (apple / cans);
     }
 
-    public static int cansMidle(int apple, int cans, int cans2) {
-        return (apple % cans / cans2);
+    public static int cans2(int apple, int cans) {
+        return (apple % cans);
     }
 
-    public static int cansSmall(int apple, int cans, int cans2, int cans3) {
-        return (apple % cans % cans2 / cans3);
 
-    }
 
 }
