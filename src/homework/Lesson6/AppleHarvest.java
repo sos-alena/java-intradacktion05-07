@@ -22,7 +22,7 @@ public class AppleHarvest {
         System.out.println();
 
         int result = cans(apple, cans);
-        System.out.println("ig banks for 5 apples - " + result + " banks;");
+        System.out.println("Big banks for 5 apples - " + result + " banks;");
 
         int result2 = cans2(apple, cans);
         int result22 = cans(result2, cans2);
