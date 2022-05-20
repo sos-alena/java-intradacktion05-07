@@ -11,42 +11,36 @@ public class CarsWhile {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        String input = "Let's go wash the car!!!";
-        System.out.println(input);
+        System.out.println("Let's go wash the car!!! Enter the number of cars to be washed: ");
+        int j = Integer.parseInt(READER.readLine());
         int i = 0;
-        while (!input.equalsIgnoreCase("stop")) {
-
+        while (i != j) {
             i++;
-            System.out.println();
-            stage1();
-            stage2();
-            stage3();
-            System.out.println();
-            System.out.println("The car has been washed and can be returned to the customer.");
-            System.out.println();
-            System.out.println("Number of cars washed. №" + i);
-            System.out.println("Enter the word 'go' to continue the program or 'stop' to stop");
-            input = READER.readLine();
+            soapCar();
+            washCar();
+            dryCar();
 
         }
         System.out.println("Total washed cars: " + i);
 
     }
 
-    public static void stage1() {
-
+    public static void soapCar() {
+        System.out.println();
         System.out.println("Stage 1 - soap up the car;");
+
 
     }
 
-    public static void stage2() {
+    public static void washCar() {
 
         System.out.println("Stage 2 - to wash a car;");
     }
 
-    public static void stage3() {
-
+    public static void dryCar() {
         System.out.println("Stage 3 - dry the car;");
+        System.out.println();
+        System.out.println("The car has been washed and can be returned to the customer.");
 
     }
 }

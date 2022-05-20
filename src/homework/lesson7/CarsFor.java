@@ -10,39 +10,35 @@ public class CarsFor {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        String input = "Let's go wash the car!!!";
-        int sum = 0;
-        for (int i = 1; i <= 5; i++) {
+        System.out.println("Let's go wash the car!!! Enter the number of cars to be washed: ");
 
-            stage1();
-            stage2();
-            stage3();
+        int j = Integer.parseInt(READER.readLine());
+        for (int i = 1; i <= j; i++) {
 
-            System.out.println();
-            System.out.println("The car has been washed and can be returned to the customer.");
-            System.out.println();
-            System.out.println("Number of cars washed. №" + i);
-            System.out.println();
-            sum++;
+            soapCar();
+            washCar();
+            dryCar();
+
         }
 
-        System.out.println("Total washed cars: " + sum);
+        System.out.println("Total washed cars: " + j);
     }
 
-    public static void stage1() {
-
+    public static void soapCar() {
+        System.out.println();
         System.out.println("Stage 1 - soap up the car;");
 
     }
-
-    public static void stage2() {
+    public static void washCar() {
 
         System.out.println("Stage 2 - to wash a car;");
     }
 
-    public static void stage3() {
-
+    public static void dryCar() {
         System.out.println("Stage 3 - dry the car;");
+        System.out.println();
+        System.out.println("The car has been washed and can be returned to the customer.");
+
 
     }
 }
