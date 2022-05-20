@@ -10,19 +10,22 @@ public class NumberGuessing {
 
     public static void main(String[] args) throws IOException {
 
+        System.out.println("The computer guessed a number from min to max (enter the values into the console): ");
 
-        int number = generateRandom();
-        System.out.println("The computer guessed a number from 1 to 10: ");
+        int min = Integer.parseInt(READER.readLine());
+        int max = Integer.parseInt(READER.readLine());
 
-        System.out.println("Enter your number from 1 to 10:");
+        int number = generateRandom(min, max);
+
+        System.out.println("Enter your number from " + min + " to " + max);
         int number2 = Integer.parseInt(READER.readLine());
         while (number2 != number) {
 
-            if (valid(number2)) {
+            if (valid(number2, min, max)) {
                 System.out.println("User name - " + number2 + " Wrong!");
 
             } else {
-                System.out.println("Error. Enter your number from 1 to 10:");
+                System.out.println("Error. Enter your number from " + min + " to " + max);
             }
             number2 = Integer.parseInt(READER.readLine());
 
@@ -31,13 +34,14 @@ public class NumberGuessing {
 
     }
 
-    public static int generateRandom() {
-        return (int) (Math.random() * 10);
+    public static int generateRandom(int min, int max) {
+
+        return (int) (Math.random() * (max - min) + min);
     }
 
 
-    public static boolean valid(int number) {
-        return (number >= 0 && number <= 10);
+    public static boolean valid(int number, int min, int max) {
+        return (number >= min && number <= max);
     }
 
 
