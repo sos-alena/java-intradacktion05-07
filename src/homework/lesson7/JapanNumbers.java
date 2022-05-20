@@ -11,7 +11,7 @@ public class JapanNumbers {
 
         for (int i = 0; i <= 100; i++) {
 
-            if (i % 10 - 4 != 0 && i % 10 - 9 != 0)
+            if (i % 10 - 4 != 0 && i % 10 - 9 != 0 && i / 10 !=4 && i / 10 != 9)
                 System.out.println("i = " + (i));
         }
 
