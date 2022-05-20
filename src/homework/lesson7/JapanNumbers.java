@@ -3,7 +3,7 @@ package homework.lesson7;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class japanNumbers {
+public class JapanNumbers {
 
     public static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
 
