@@ -9,33 +9,18 @@ public class Cod {
     public static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) {
 
-        /* Реалізувати механізм підбору чотирицифрового коду. Вивести в консоль кількість ітерацій.
-
-Наприклад, ми маємо pin = 9407, за скільки ітерацій програма підбере код.
-
-Цикли, масиви, іфи і тд. */
-
-      /*  int numbers[] = new int[4];
-
-
-
-        for (int i = 0; i < 9; i++) {
-
-            System.out.println(i);
-
-        }*/
-
+       
         int numb = 9407;
-        int unit = numb % 100;
+        int units = numb % 100;
         int dozens = (numb / 10) % 10;
-        int handrezd = (numb / 10) / 10 % 10;
-        int thouzend = (numb / 10) / 10 / 10 % 10;
-        System.out.println(unit);
+        int hundreds = (numb / 10) / 10 % 10;
+        int thousands = (numb / 10) / 10 / 10 % 10;
+        System.out.println(units);
         System.out.println(dozens);
-        System.out.println(handrezd);
-        System.out.println(thouzend);
+        System.out.println(hundreds);
+        System.out.println(thousands);
 
-        int numbers[] = {thouzend, handrezd, dozens, unit};
+        int numbers[] = {thousands, hundreds, dozens, units};
         int counter = 0;
 
         for (int i = 0; i < numbers.length; i++) {
@@ -53,6 +38,7 @@ public class Cod {
 
 
         }
-        System.out.println(counter);
+        System.out.println();
+        System.out.println("Number of iterations: " + counter);
     }
 }
