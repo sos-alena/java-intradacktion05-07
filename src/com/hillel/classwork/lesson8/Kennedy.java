@@ -2,16 +2,11 @@ package com.hillel.classwork.lesson8;
 
 import java.util.Random;
 
-public class Task2Kennedy {
+public class Kennedy {
 
 
     public static void main(String[] args) {
 
-        /*В убийстве Кеннеди есть 10 подозреваемых.
-        Для каждого установлена вероятность того, что он является убийцей.
-        Вероятности записаны в массив чисел. Определить номер подозреваемого
-         с самой большой вероятностью.
-          */
 
         int numbers[] = new int[10];
         int temp = 0;
