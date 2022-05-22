@@ -1,6 +1,6 @@
 package com.hillel.classwork.lesson8;
 
-public class square {
+public class Square {
 
 
     public static void main(String[] args) {
