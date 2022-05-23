@@ -29,11 +29,25 @@ public class Palindrome {
         System.out.println();
         System.out.println();
 
-        Boolean result = Arrays.equals(strToArray, strToArrayTwo);
-        System.out.println(result);
+
+        boolean result = palindromeArray(strToArray, strToArrayTwo);
 
         comparisonResult(result);
 
+
+    }
+
+    private static boolean palindromeArray(char[] strToArray, char[] strToArrayTwo) {
+        boolean result = true;
+        for (int i = 0; i < strToArray.length; i++) {
+            if (strToArray[i] == strToArrayTwo[i]) {
+
+            } else {
+                result = false;
+            }
+
+        }
+        return result;
     }
 
     private static void comparisonResult(Boolean result) {
