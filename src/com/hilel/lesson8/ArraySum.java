@@ -1,4 +1,4 @@
-package com.hillel.classwork.lesson8;
+package com.hilel.lesson8;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

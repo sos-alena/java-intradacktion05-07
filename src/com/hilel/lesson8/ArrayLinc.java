@@ -1,4 +1,4 @@
-package com.hillel.classwork.lesson8;
+package com.hilel.lesson8;
 
 public class ArrayLinc {
 

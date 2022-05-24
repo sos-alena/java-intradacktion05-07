@@ -1,4 +1,4 @@
-package homework;
+package homework.lesson3;
 
 import static java.lang.Math.*;
 

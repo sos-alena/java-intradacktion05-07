@@ -1,6 +1,4 @@
-package com.hillel.classwork.lesson8;
-
-import java.util.Random;
+package com.hilel.lesson8;
 
 public class Kennedy {
 

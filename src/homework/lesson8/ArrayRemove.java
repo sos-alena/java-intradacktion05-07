@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ArrayString {
+public class ArrayRemove {
 
 
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
@@ -18,14 +18,18 @@ public class ArrayString {
 
         String[] oneStrings = getNewStrings(newStrings);
 
-        importFromStringOne(newStrings, oneStrings);
+        int min = 0;
+        int max = oneStrings.length / 2;
+        importFromString(newStrings, oneStrings, min, max);
 
         printArray(oneStrings);
 
         System.out.println();
         String[] twoStrings = getNewStrings(newStrings);
 
-        importFromStringTwo(newStrings, twoStrings);
+        int min2 = oneStrings.length / 2 + 1;
+        int max2 = twoStrings.length;
+        importFromString(newStrings, twoStrings, min2, max2);
 
         printArray(twoStrings);
         System.out.println();
@@ -39,24 +43,20 @@ public class ArrayString {
         System.out.println("Print anotherString.length: " + n);
         String[] getStrings = new String[n];
 
-            return getStrings;
+        return getStrings;
 
     }
 
-    private static void importFromStringOne(String[] arrays, String[] anotherArrays) {
+    private static void importFromString(String[] arrays, String[] anotherArrays, int min, int max) {
         System.out.println("Enter values of oneString: ");
-        for (int j = 0; j < anotherArrays.length; j++) {
+
+        for (int j = min; j < max; j++) {
             anotherArrays[j] = arrays[j];
 
         }
     }
 
-    public static void importFromStringTwo(String[] arrays, String[] anotherArrays) {
-        System.out.println("Enter values of twoString: ");
-        for (int j = 0; j < anotherArrays.length; j++) {
-            anotherArrays[j] = arrays[arrays.length / 2 + j];
-        }
-    }
+
 
     public static void printArray(String[] strings) {
         for (String string : strings) {

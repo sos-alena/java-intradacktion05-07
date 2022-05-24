@@ -1,32 +1,19 @@
-package com.hillel.classwork.lesson8;
+package com.hilel.lesson8;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PrintArray {
+public class CatchBag {
 
-
-
-    public static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+    static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException {
 
-
-        int[] numbers = new int[5];
-
-        for (int i = 0; i < numbers.length; i++) {
-
-            numbers[i] = getNumber();
-
-        }
-
-        for (int i = 0; i < numbers.length - 1; i++) {
-            System.out.print(numbers[i] + ",");
-
-
-        }
-        System.out.print(numbers[numbers.length-1]);
+        Integer integer = getNumber();
+        System.out.println(integer);
+        // code
+        System.out.println("continue...");
     }
 
     private static Integer getNumber() {
