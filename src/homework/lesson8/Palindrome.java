@@ -76,7 +76,7 @@ public class Palindrome {
         System.out.println("Enter string: ");
         String str = READER.readLine();
         String str2 = str.replaceAll(" ", "");
-        System.out.println(str2);
+       // System.out.println(str2);
         return str2;
     }
 
