@@ -15,11 +15,14 @@ public class ArrayRemove {
         String[] newStrings = createAndFill(i);
         printArray(newStrings);
         System.out.println();
+        int min = 0;
+        int max = newStrings.length / 2;
+        int min2 = max;
+        int max2 = newStrings.length;
+
 
         String[] oneStrings = getNewStrings(newStrings);
 
-        int min = 0;
-        int max = oneStrings.length / 2;
         importFromString(newStrings, oneStrings, min, max);
 
         printArray(oneStrings);
@@ -27,8 +30,6 @@ public class ArrayRemove {
         System.out.println();
         String[] twoStrings = getNewStrings(newStrings);
 
-        int min2 = oneStrings.length / 2 + 1;
-        int max2 = twoStrings.length;
         importFromString(newStrings, twoStrings, min2, max2);
 
         printArray(twoStrings);
@@ -50,8 +51,10 @@ public class ArrayRemove {
     private static void importFromString(String[] arrays, String[] anotherArrays, int min, int max) {
         System.out.println("Enter values of oneString: ");
 
+        int i = 0;
         for (int j = min; j < max; j++) {
-            anotherArrays[j] = arrays[j];
+            anotherArrays[i] = arrays[j];
+            i++;
 
         }
     }
