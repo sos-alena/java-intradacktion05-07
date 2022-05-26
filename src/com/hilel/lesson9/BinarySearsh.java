@@ -6,7 +6,7 @@ public class BinarySearsh {
 
     public static void main(String[] args) {
 
-        int[] numbers = {10, 5, 7, 3, 5, 9};
+        int[] numbers = {10, 3, 7, 3, 5, 9};
         int search = 3;
         System.out.println(Arrays.toString(numbers));
         Arrays.sort(numbers);
