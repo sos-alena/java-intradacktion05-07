@@ -23,12 +23,8 @@ public class lottery {
         Arrays.sort(numbers);
         Arrays.sort(numbers2);
 
-        PrintNumbers(numbers);
-        System.out.println(" - Number made by the company:");
-
-        System.out.println();
-        PrintNumbers(numbers2);
-        System.out.println(" - The number entered by the player:");
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(Arrays.toString(numbers2));
 
         coincidences(numbers, numbers2);
 
@@ -60,12 +56,7 @@ public class lottery {
         }
 
     }
-    public static void PrintNumbers(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
 
-        }
-    }
     public static void FillRandom(int[] numbers) {
         System.out.print("The company that organizes the lottery made a number of " + numbers.length + " numbers.");
         for (int i = 0; i < numbers.length; i++) {
