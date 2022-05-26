@@ -30,24 +30,23 @@ public class Palindrome {
         System.out.println();
 
 
-        boolean result = palindromeArray(strToArray, strToArrayTwo);
+        boolean result = isPalindrome(strToArray, strToArrayTwo);
 
         comparisonResult(result);
 
 
     }
 
-    private static boolean palindromeArray(char[] strToArray, char[] strToArrayTwo) {
-        boolean result = true;
+    private static boolean isPalindrome(char[] strToArray, char[] strToArrayTwo) {
         for (int i = 0; i < strToArray.length; i++) {
-            if (strToArray[i] == strToArrayTwo[i]) {
+            if (strToArray[i] != strToArrayTwo[i]) {
+              return false;
 
-            } else {
-                result = false;
             }
 
         }
-        return result;
+
+        return true;
     }
 
     private static void comparisonResult(Boolean result) {
