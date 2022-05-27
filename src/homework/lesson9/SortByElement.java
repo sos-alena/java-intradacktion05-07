@@ -29,7 +29,7 @@ public class SortByElement {
     public static void SortByElement(int[] numbers, int search) throws IOException {
         int count = 0;
         for (int j = 1; j < numbers.length; j++) {
-            for (int i = 0; i < numbers.length - 1; i++) {
+            for (int i = 0; i < j - 1; i++) {
                 if (numbers[i] != search) {
                     count = numbers[i];
                     numbers[i] = numbers[j];
@@ -43,7 +43,7 @@ public class SortByElement {
             }
 
         }
-    }
+        }
     public static void FillArray(int[] numbers) {
         System.out.println("Enter the number of the array: ");
         for (int i = 0; i < numbers.length; i++) {
