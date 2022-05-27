@@ -51,7 +51,6 @@ public class SortByElement {
 
         }
     }
-
     private static Integer getNumber() {
 
         try {

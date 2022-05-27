@@ -12,13 +12,14 @@ public class lottery {
     public static void main(String[] args) throws IOException {
 
         System.out.println("Enter length: ");
-        int length = Integer.parseInt(READER.readLine());
-        int[] numbers = new int[length];
-        int[] numbers2 = new int[length];
+        int length = getNumber();
+        System.out.print("The company that organizes the lottery made a number of " + length + " numbers.");
 
-        FillRandom(numbers);
         System.out.println();
-        FillReader(numbers2);
+        int[] numbers = createAndFillArrayRandom(length);
+        System.out.println();
+        int[] numbers2 = createAndFillArrayReader(length);
+        System.out.println();
 
         Arrays.sort(numbers);
         Arrays.sort(numbers2);
@@ -41,39 +42,53 @@ public class lottery {
         System.out.println();
         System.out.println("Number of coincidences total: " + x);
     }
-    public static void FillReader(int[] numbers) throws IOException {
-        System.out.println("Enter the numbers that the player guesses from 0 to 9: ");
 
+    public static int[] createAndFillArrayReader(int size) throws IOException {
+        int[] numbers = new int[size];
+        System.out.println("Enter min: ");
+        int min = getNumber();
+        System.out.println("Enter max: ");
+        int max = getNumber();
+        System.out.println("Enter the numbers that the player guesses from " + min + " to " + max + ": ");
         for (int i = 0; i < numbers.length; i++) {
-            int input = getNumber();
-            if (input >= 0 && input <= 9) {
-                numbers[i] = input;
-            } else {
-                System.out.println("Error: " + input);
-                System.out.println("Enter number again from 0 to 9");
-                numbers[i] = getNumber();
-            }
+            numbers[i] = getNumber(min, max);
         }
-
+        return numbers;
     }
 
-    public static void FillRandom(int[] numbers) {
-        System.out.print("The company that organizes the lottery made a number of " + numbers.length + " numbers.");
+    public static int[] createAndFillArrayRandom(int size) {
+        int[] numbers = new int[size];
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = (int) (Math.random() * 10);
 
         }
+        return numbers;
     }
-    private static Integer getNumber() {
-
+    public static Integer getNumber() {
         try {
             String str = READER.readLine();
             return Integer.parseInt(str);
-
         } catch (Exception exception) {
             System.out.println("Error: " + exception.getMessage());
-            System.out.println("Enter number again from 0 to 9");
+            System.out.println("Enter number again");
             return getNumber();
         }
     }
+    private static Integer getNumber(int min, int max) throws IOException {
+        int number = Integer.parseInt(READER.readLine());
+        try {
+            if (number < min || number > max) {
+                System.out.println("Error. Input number is out of range! ");
+                System.out.println("Enter number again");
+                return getNumber(min, max);
+            }
+        } catch (Exception exception) {
+            System.out.println("Error: " + exception.getMessage());
+            System.out.println("Enter number again");
+            return getNumber(min, max);
+        }
+        return number;
+    }
+
+
 }
