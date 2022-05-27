@@ -21,12 +21,12 @@ public class MovingVariables {
 
         System.out.println(Arrays.toString(numbers));
 
-        SearchNumber(numbers, search);
+        SortByElement(numbers, search);
 
         System.out.println(Arrays.toString(numbers));
 
     }
-    public static void SearchNumber(int[] numbers, int search) throws IOException {
+    public static void SortByElement(int[] numbers, int search) throws IOException {
         int count = 0;
         for (int j = 1; j < numbers.length; j++) {
             for (int i = 0; i < numbers.length - 1; i++) {
