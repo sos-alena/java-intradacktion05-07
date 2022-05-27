@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class MovingVariables {
+public class SortByElement {
 
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
 
