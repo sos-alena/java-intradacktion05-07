@@ -44,6 +44,7 @@ public class lottery {
     }
 
     public static int[] createAndFillArrayReader(int size) throws IOException {
+
         int[] numbers = new int[size];
         System.out.println("Enter min: ");
         int min = getNumber();
@@ -74,20 +75,21 @@ public class lottery {
             return getNumber();
         }
     }
-    private static Integer getNumber(int min, int max) throws IOException {
-        int number = Integer.parseInt(READER.readLine());
+    public static int getNumber(int min, int max) throws IOException {
         try {
+            int number = Integer.parseInt(READER.readLine());
             if (number < min || number > max) {
                 System.out.println("Error. Input number is out of range! ");
                 System.out.println("Enter number again");
                 return getNumber(min, max);
             }
+            return number;
         } catch (Exception exception) {
             System.out.println("Error: " + exception.getMessage());
             System.out.println("Enter number again");
             return getNumber(min, max);
         }
-        return number;
+
     }
 
 
