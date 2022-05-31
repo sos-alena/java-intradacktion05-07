@@ -25,7 +25,7 @@ public class NegativeNumbers {
         System.out.println("Source Matrix: ");
         System.out.println("-----------------------------------");
 
-        PrintTwoDimensionalArray(matrix);
+        printTwoDimensionalArray(matrix);
 
         System.out.println("-----------------------------------");
         printNegativeNumb(matrix);
@@ -66,7 +66,7 @@ public class NegativeNumbers {
             return getNumber();
         }
     }
-    public static void PrintTwoDimensionalArray(int[][] transposing) {
+    public static void printTwoDimensionalArray(int[][] transposing) {
 
         for (int[] ints : transposing) {
             for (int anInt : ints) {

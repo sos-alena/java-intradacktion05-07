@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Factorial {
-
-
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) {
@@ -13,17 +11,15 @@ public class Factorial {
         System.out.println("Enter number: ");
         int number = getNumber();
 
-        int fact = Factorial(number);
+        int fact = factorial(number);
         System.out.println("Factorial number " + number + " - " + fact);
 
-
     }
-
-   public static int Factorial(int n)
+   public static int factorial(int n)
     {
         if (n == 1) return 1;
 
-        return n * Factorial(n - 1);
+        return n * factorial(n - 1);
     }
 
     public static Integer getNumber() {
