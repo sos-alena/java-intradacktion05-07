@@ -15,7 +15,13 @@ public class Password {
     char[] lowLetter;
     char[] number;
     char symbol;
+
     public Password(char[] bigLetter, char[] lowLetter, char[] number, char symbol) throws IOException {
+
+        this.bigLetter = bigLetter;
+        this.lowLetter = lowLetter;
+        this.number = number;
+        this.symbol = symbol;
 
         System.out.println("Create new password!");
 
