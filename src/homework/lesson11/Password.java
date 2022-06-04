@@ -19,8 +19,6 @@ public class Password {
 
         System.out.println("Create password");
 
-        shuffleArray(getPassword);
-
     }
     public char[] createFillArray(int size, char min) throws IOException {
         char[] array = new char[size];
@@ -69,11 +67,11 @@ public class Password {
                 newCod[i] = newArray[n];
             }
 
-            return newCod;
+            return shuffleArray(newCod);
 
     }
 
-    static void shuffleArray(char[] newCod) {
+    static char[] shuffleArray(char[] newCod) {
         Random rnd = new Random();
         int index;
         for (int i = newCod.length - 1; i > 0; i--) {
@@ -84,9 +82,28 @@ public class Password {
             newCod[i] = (char) a;
         }
 
+        return newCod;
     }
 
-    public static int getValue() throws IOException {
+    public static int getNumber() throws IOException {
+        try {
+            int min = 0;
+            int number = Integer.parseInt(READER.readLine());
+            if (number < 0) {
+                System.out.println("Error. Input number is out of range! ");
+                System.out.println("Enter a number greater than four");
+                return getNumber();
+            }
+            return number;
+        } catch (Exception exception) {
+            System.out.println("Error: " + exception.getMessage());
+            System.out.println("Enter number again");
+            return getNumber();
+        }
+
+    }
+
+    public int getValue() throws IOException {
         try {
             int min = 4;
             int number = Integer.parseInt(READER.readLine());
