@@ -21,10 +21,6 @@ public class PasswordGeneration {
             Password password = new Password();
             System.out.println(password.toString());
 
-
-
-
-
         }
     }
 
