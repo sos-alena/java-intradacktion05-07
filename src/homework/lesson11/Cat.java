@@ -38,6 +38,7 @@ public class Cat {
                 '}';
     }
 
+
     public boolean equals(Object obj) {
         if (obj instanceof Cat) {
             Cat cat = (Cat) obj;
