@@ -4,23 +4,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Random;
+
 public class Password {
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
-    char[] bigLetter = createFillArray(26, (char) 65);
-    char[] lowLetter = createFillArray(26, (char) 97);
-    char[] number = createFillArray(10, (char) 48);
-    char symbol = '_';
+
+   private char[] bigLetter = createFillArray(26, (char) 65);
+   private char[] lowLetter = createFillArray(26, (char) 97);
+   private char[] number = createFillArray(10, (char) 48);
+   private char symbol = '_';
 
     char[] str = newString(bigLetter, lowLetter, number, symbol);
-    char[] getPassword = getCod(symbol, number, bigLetter, lowLetter, str);
+    char[] getPassword = getCod();
 
     public Password() throws IOException {
 
         System.out.println("Create password");
 
     }
-    public char[] createFillArray(int size, char min) throws IOException {
+    private char[] createFillArray(int size, char min) throws IOException {
         char[] array = new char[size];
         char minSymbolNamber = min;
         for (int i = 0; i < array.length; i++) {
@@ -30,93 +31,63 @@ public class Password {
 
         return array;
     }
-    public char[] newString(char[] bigLetter, char[] lowLetter, char[] number, char symbol) {
+    private char[] newString(char[] bigLetter, char[] lowLetter, char[] number, char symbol) {
         String str = new String(bigLetter) + new String(lowLetter) + new String(number) + symbol;
         char[] newArray = str.toCharArray();
         return newArray;
 
     }
-    public char[] getCod(char symbol, char[] number, char[] bigLetter, char[] lowLetter, char[] newArray) throws IOException {
+    private char[] getCod() throws IOException {
         System.out.println("Enter password size (size > 4): ");
-        int size = getValue();
+        int size = getNumber(4);
+
             char[] newCod = new char[size];
-            int k;
-            for (int i = 0; i < 1; i++) {
-                k = (int) (Math.random() * bigLetter.length);
-                newCod[i] = bigLetter[k];
-            }
 
-            int m;
-            for (int i = 1; i < 2; i++) {
-                m = (int) (Math.random() * lowLetter.length);
-                newCod[i] = lowLetter[m];
-            }
+        newCod[0] = bigLetter[(char) (Math.random() * bigLetter.length)];
+        newCod[1] = lowLetter[(char) (Math.random() * lowLetter.length)];
+        newCod[2] = number[(char) (Math.random() * number.length)];
+        newCod[3] = symbol;
 
-            int t;
-            for (int i = 2; i < 3; i++) {
-                t = (int) (Math.random() * number.length);
-                newCod[i] = number[t];
-            }
-
-            for (int i = 3; i < 4; i++) {
-                newCod[i] = symbol;
-            }
-            int n = 0;
+            char n;
             for (int i = 4; i < newCod.length; i++) {
-                n = (int) (Math.random() * newArray.length);
-                newCod[i] = newArray[n];
+                n = (char) (Math.random() * str.length);
+                newCod[i] = str[n];
             }
-
             return shuffleArray(newCod);
-
     }
+    private char[] shuffleArray(char[] newCod) {
+        char index;
+        char a;
+        for (int i = 0; i < newCod.length; i++) {
+            index = (char) (Math.random() * newCod.length);
 
-    static char[] shuffleArray(char[] newCod) {
-        Random rnd = new Random();
-        int index;
-        for (int i = newCod.length - 1; i > 0; i--) {
-            index = rnd.nextInt(i + 1);
-
-            int a = newCod[index];
+            a = newCod[index];
             newCod[index] = newCod[i];
-            newCod[i] = (char) a;
+            newCod[i] = a;
         }
 
         return newCod;
     }
 
-    public static int getNumber() throws IOException {
-        try {
-            int min = 0;
-            int number = Integer.parseInt(READER.readLine());
-            if (number < 0) {
-                System.out.println("Error. Input number is out of range! ");
-                System.out.println("Enter a number greater than four");
-                return getNumber();
-            }
-            return number;
-        } catch (Exception exception) {
-            System.out.println("Error: " + exception.getMessage());
-            System.out.println("Enter number again");
-            return getNumber();
+    public static void passwordlist(int numb) throws IOException {
+        for (int i = 0; i < numb; i++) {
+            Password password = new Password();
+            System.out.println(password.toString());
         }
-
     }
-
-    public int getValue() throws IOException {
+    public static int getNumber(int min) throws IOException {
         try {
-            int min = 4;
             int number = Integer.parseInt(READER.readLine());
-            if (number < 4) {
-                System.out.println("Error. Input number is out of range! ");
-                System.out.println("Enter a number greater than four");
-                return getValue();
+            if (number < min){
+                System.out.println("Error: " + min);
+                System.out.println("Enter number again");
+                return getNumber(min);
             }
             return number;
         } catch (Exception exception) {
             System.out.println("Error: " + exception.getMessage());
             System.out.println("Enter number again");
-            return getValue();
+            return getNumber(min);
         }
 
     }
@@ -125,6 +96,7 @@ public class Password {
         return "Password{" +
                 "Generated password='" + Arrays.toString(getPassword);
     }
+
 }
 
 
