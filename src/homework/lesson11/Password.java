@@ -7,73 +7,55 @@ import java.util.Arrays;
 
 public class Password {
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+    private static final String BIGLETTER = "ABCDEFGHIGKLMNOPQRSTUVWXYZ";
+    private static final String LOWLETTER = BIGLETTER.toLowerCase();
+    private static final String NUMBER = "0123456789";
+    private static final char UNDERSCOPE = '_';
 
-   private char[] bigLetter = createFillArray(26, (char) 65);
-   private char[] lowLetter = createFillArray(26, (char) 97);
-   private char[] number = createFillArray(10, (char) 48);
-   private char symbol = '_';
-
-    char[] str = newString(bigLetter, lowLetter, number, symbol);
-    char[] getPassword = getCod();
+    private final StringBuilder str = new StringBuilder().append(BIGLETTER).append(LOWLETTER).append(NUMBER).append(UNDERSCOPE);
+    private final char[] getPassword = getCode();
 
     public Password() throws IOException {
-
         System.out.println("Create password");
+        System.out.println(getPassword);
 
     }
-    private char[] createFillArray(int size, char min) throws IOException {
-        char[] array = new char[size];
-        char minSymbolNamber = min;
-        for (int i = 0; i < array.length; i++) {
-            array[i] = minSymbolNamber;
-            minSymbolNamber++;
-        }
-
-        return array;
-    }
-    private char[] newString(char[] bigLetter, char[] lowLetter, char[] number, char symbol) {
-        String str = new String(bigLetter) + new String(lowLetter) + new String(number) + symbol;
-        char[] newArray = str.toCharArray();
-        return newArray;
-
-    }
-    private char[] getCod() throws IOException {
+      private char[] getCode() throws IOException {
         System.out.println("Enter password size (size > 4): ");
         int size = getNumber(4);
 
-            char[] newCod = new char[size];
+          char[] newCode = new char[size];
+                  newCode[0] = BIGLETTER.charAt((int) (Math.random() * BIGLETTER.length()));
+                  newCode[1] = LOWLETTER.charAt((int) (Math.random() * LOWLETTER.length()));
+                  newCode[2] = (NUMBER.charAt((int) (Math.random() * NUMBER.length())));
+                  newCode[3] = (UNDERSCOPE);
 
-        newCod[0] = bigLetter[(char) (Math.random() * bigLetter.length)];
-        newCod[1] = lowLetter[(char) (Math.random() * lowLetter.length)];
-        newCod[2] = number[(char) (Math.random() * number.length)];
-        newCod[3] = symbol;
+            for (int i = 4; i < newCode.length; i++) {
+                newCode[i] = (str.charAt((int) (Math.random() * str.length())));
 
-            char n;
-            for (int i = 4; i < newCod.length; i++) {
-                n = (char) (Math.random() * str.length);
-                newCod[i] = str[n];
             }
-            return shuffleArray(newCod);
+
+            return shuffleCode(newCode);
+
     }
-    private char[] shuffleArray(char[] newCod) {
-        char index;
+    private char[] shuffleCode(char[] newCode) {
+        int index;
         char a;
-        for (int i = 0; i < newCod.length; i++) {
-            index = (char) (Math.random() * newCod.length);
+        for (int i = 0; i < newCode.length; i++) {
+            index = (int) (Math.random() * newCode.length);
 
-            a = newCod[index];
-            newCod[index] = newCod[i];
-            newCod[i] = a;
+            a = newCode[index];
+            newCode[index] = newCode[i];
+            newCode[i] = a;
         }
-
-        return newCod;
+        return newCode;
     }
-
-    public static void passwordlist(int numb) throws IOException {
-        for (int i = 0; i < numb; i++) {
-            Password password = new Password();
-            System.out.println(password.toString());
+    public static Password[] createListPasswords(int numb) throws IOException {
+        Password[] password = new Password[numb];
+        for (int i = 0; i < password.length; i++) {
+            password[i] = new Password();
         }
+        return password;
     }
     public static int getNumber(int min) throws IOException {
         try {
@@ -94,9 +76,9 @@ public class Password {
     @Override
     public String toString() {
         return "Password{" +
-                "Generated password='" + Arrays.toString(getPassword);
+                "getPassword=" + Arrays.toString(getPassword) +
+                '}';
     }
-
 }
 
 

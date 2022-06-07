@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-import static homework.lesson9.lottery.getNumber;
-
 public class SortByElement {
 
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
@@ -38,11 +36,8 @@ public class SortByElement {
 
                 } else {
                     numbers[i] = search;
-
                 }
-
             }
-
         }
     }
     public static int[] createAndFillArray(int size) {
