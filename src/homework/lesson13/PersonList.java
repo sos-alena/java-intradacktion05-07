@@ -11,9 +11,7 @@ public class PersonList {
         int students = Person.getNumber();
 
         Person[] person = Person.createListPerson(students);
-
     }
-
 }
 
 

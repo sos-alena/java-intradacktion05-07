@@ -23,9 +23,8 @@ public class Cat {
     }
 
     public boolean fight(Object obj)
-        {if (obj instanceof Cat) {
-                Cat cat = (Cat) obj;
-                if (this.age < cat.age && this.weigh > cat.weigh || this.strength > cat.strength) {
+        {if (obj instanceof Cat cat) {
+            if (this.age < cat.age && this.weigh > cat.weigh || this.strength > cat.strength) {
                     System.out.println("Cat is winner");
                 }   else {
                     System.out.println("No, winner cat number 2");

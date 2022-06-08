@@ -6,25 +6,21 @@ import java.io.InputStreamReader;
 
 public class Person {
 
-    public static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
-    public static int COUNT = 1;
-    public static final String[] NAMES = {"Misha", "Sasha", "Piter", "Oleg", "Anton", "Valera"};
-    public static final String[] SHURNAMES = {"Ivanov", "Mendeleev", "Peterson", "Grinyuk", "Shevchuk", "Vunshtein"};
-
+    private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+    private static int COUNT = 1;
+    private static final String[] NAMES = {"Misha", "Sasha", "Piter", "Oleg", "Anton", "Valera"};
+    private static final String[] SHURNAMES = {"Ivanov", "Mendeleev", "Peterson", "Grinyuk", "Shevchuk", "Vunshtein"};
 
     private final String name;
     private final String surname;
     private final int height;
     private int age, weight;
-
     public Person() {
-
-        this.name = Person.NAMES[((int) (Math.random() * Person.NAMES.length))];
-        this.surname = Person.SHURNAMES[(int) (Math.random() * Person.SHURNAMES.length)];
+        this.name = NAMES[((int) (Math.random() * NAMES.length))];
+        this.surname = SHURNAMES[(int) (Math.random() * SHURNAMES.length)];
         this.age = (int) (Math.random() * (35 - 18) + 18);
         this.weight =(int) (Math.random() * (100 - 65) + 65);
         this.height = (int) (Math.random() * (200 - 160) + 160);
-
     }
     public static Person[] createListPerson(int students){
     Person[] person = new Person[students];
@@ -34,23 +30,6 @@ public class Person {
         }
         return person;
     }
-
-    public int getAge() {
-        return age;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
     public static int getNumber() throws IOException {
         try {
             int number = Integer.parseInt(READER.readLine());
@@ -65,23 +44,7 @@ public class Person {
             System.out.println("Enter number again");
             return getNumber();
         }
-
     }
-
-    public boolean equals(Object obj) {
-        if (obj instanceof Person) {
-            Person person = (Person) obj;
-
-             return this.name == person.name &&
-                    this.surname == person.surname &&
-                     this.age == person.age &&
-                     this.weight == person.weight &&
-                     this.height == person.height;
-        }
-
-        return false;
-    }
-
     @Override
     public String toString() {
         return "Person № " + (COUNT++) + "{" +
