@@ -16,13 +16,13 @@ public class Person {
         this.weight =(int) (Math.random() * (100 - 65) + 65);
         this.height = (int) (Math.random() * (200 - 160) + 160);
     }
-    public static Person[] createListPerson(int persons){
-    Person[] person = new Person[persons];
-        for (int i = 0; i < person.length; i++) {
-            person[i] = new Person();
-            System.out.println(person[i]);
+    public static Person[] createListPerson(int number){
+    Person[] persons = new Person[number];
+        for (int i = 0; i < persons.length; i++) {
+            persons[i] = new Person();
+            System.out.println(persons[i]);
         }
-        return person;
+        return persons;
     }
     @Override
     public String toString() {

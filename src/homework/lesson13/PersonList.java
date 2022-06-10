@@ -7,9 +7,9 @@ public class PersonList {
     public static void main(String[] args) throws IOException {
 
         System.out.println("Enter the number of persons (example 100): ");
-        int persons = getNumber();
+        int number = getNumber();
 
-        Person[] person = Person.createListPerson(persons);
+        Person[] person = Person.createListPerson(number);
     }
 }
 
