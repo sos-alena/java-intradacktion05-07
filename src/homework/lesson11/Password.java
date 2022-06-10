@@ -1,28 +1,27 @@
 package homework.lesson11;
 
-import java.io.BufferedReader;
+import homework.usefulUtilities;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Password {
-    static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
     private static final String BIGLETTER = "ABCDEFGHIGKLMNOPQRSTUVWXYZ";
     private static final String LOWLETTER = BIGLETTER.toLowerCase();
     private static final String NUMBER = "0123456789";
     private static final char UNDERSCOPE = '_';
 
     private final StringBuilder str = new StringBuilder().append(BIGLETTER).append(LOWLETTER).append(NUMBER).append(UNDERSCOPE);
-    private final char[] getPassword = getCode();
+    private final String Password;
 
     public Password() throws IOException {
         System.out.println("Create password");
-        System.out.println(getPassword);
+        this.Password = getCode();
+        System.out.println(Password);
 
     }
-      private char[] getCode() throws IOException {
+      private String getCode() throws IOException {
         System.out.println("Enter password size (size > 4): ");
-        int size = getNumber(4);
+        int size = usefulUtilities.getNumber(4);
 
           char[] newCode = new char[size];
                   newCode[0] = BIGLETTER.charAt((int) (Math.random() * BIGLETTER.length()));
@@ -36,9 +35,8 @@ public class Password {
             }
 
             return shuffleCode(newCode);
-
     }
-    private char[] shuffleCode(char[] newCode) {
+    private String shuffleCode(char[] newCode) {
         int index;
         char a;
         for (int i = 0; i < newCode.length; i++) {
@@ -48,7 +46,7 @@ public class Password {
             newCode[index] = newCode[i];
             newCode[i] = a;
         }
-        return newCode;
+        return new String(newCode);
     }
     public static Password[] createListPasswords(int numb) throws IOException {
         Password[] password = new Password[numb];
@@ -57,26 +55,10 @@ public class Password {
         }
         return password;
     }
-    public static int getNumber(int min) throws IOException {
-        try {
-            int number = Integer.parseInt(READER.readLine());
-            if (number < min){
-                System.out.println("Error: " + min);
-                System.out.println("Enter number again");
-                return getNumber(min);
-            }
-            return number;
-        } catch (Exception exception) {
-            System.out.println("Error: " + exception.getMessage());
-            System.out.println("Enter number again");
-            return getNumber(min);
-        }
-
-    }
     @Override
     public String toString() {
         return "Password{" +
-                "getPassword=" + Arrays.toString(getPassword) +
+                "getPassword=" + Password +
                 '}';
     }
 }
