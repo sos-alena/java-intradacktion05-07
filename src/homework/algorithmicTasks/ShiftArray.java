@@ -11,19 +11,19 @@ public class ShiftArray {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Введите размер массива, количество элиментов: ");
+        System.out.println("Enter array size, number of elements: ");
         int size = Integer.parseInt(READER.readLine());
-        System.out.println("Введите шаг сдвига влево/вправо (например 2): ");
+        System.out.println("Enter left/right shift step (for example 2): ");
         int numb = Integer.parseInt(READER.readLine());
 
         int[] number = CreateFillArray(numb, size);
         System.out.println(Arrays.toString(number));
 
-        System.out.println("Сдвиг вправо: ");
+        System.out.println("Shift right: ");
         int[] newNumberRigth = shiftRigth(numb, number);
         System.out.println(Arrays.toString(newNumberRigth));
 
-        System.out.println("Сдвиг влево: ");
+        System.out.println("Shift left: ");
         int[] newNumberLeft = (shiftLeft(numb, number));
         System.out.println(Arrays.toString(newNumberLeft));
 
@@ -50,10 +50,10 @@ public class ShiftArray {
         return number;
     }
     private static int[] CreateFillArray(int numb, int size) {
-        if (size % numb != 0) {                              ///Если размер массива кратный "сдвигу", то количество итераций хватит для полного перебора массива
-            int y = numb - (size % numb);                   /// Если нет, то нехватит итераций для прохождения полного цикла, результат будет некорректный
-            int[] number2 = new int[size + y];              /// вычесляем ннеобходимое количество итерраций и добавляем к размеру нового массива
-            System.out.println("Новый размер массива: " + (size + y));
+        if (size % numb != 0) {
+            int y = numb - (size % numb);
+            int[] number2 = new int[size + y];
+            System.out.println("New array size: " + (size + y));
             for (int i = 0; i < number2.length; i++) {
                 number2[i] = (int) (Math.random() * 100);
             }
