@@ -22,9 +22,13 @@ public class ShiftArray {
         System.out.println("Shift right: ");
         int[] newNumberRigth = shiftRigth(numb, number);
         System.out.println(Arrays.toString(newNumberRigth));
+        System.out.println();
+        System.out.println("Create new Array: ");
+        int[] number2 = CreateFillArray(numb, size);
+        System.out.println(Arrays.toString(number2));
 
         System.out.println("Shift left: ");
-        int[] newNumberLeft = (shiftLeft(numb, number));
+        int[] newNumberLeft = (shiftLeft(numb, number2));
         System.out.println(Arrays.toString(newNumberLeft));
 
     }
