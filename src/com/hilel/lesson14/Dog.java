@@ -2,7 +2,6 @@ package com.hilel.lesson14;
 
 public class Dog extends Animal {
 
-
     public Dog() {
         super("Black");
     }
