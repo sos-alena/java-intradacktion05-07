@@ -2,12 +2,11 @@ package homework.lesson14.coffeMachine;
 public class Drinkables {
     private static final int MARKUP = 25; // наценка на напитки
     protected int price;
-    protected Type typeDrinkables;
+    protected Type typeDrink;
 
-    public Drinkables(Type typeDrinkables) {
+    public Drinkables(Type typeDrink) {
         this.price = calculatePrice();
-        this.typeDrinkables = typeDrinkables;
-        makingDrink();
+        this.typeDrink = typeDrink;
     }
 
     public void makingDrink(){
@@ -24,8 +23,10 @@ public class Drinkables {
 
     @Override
     public String toString() {
-        return "Drink - " + typeDrinkables +
-                ", price= " + price + " EUR";
+        return "Drinkables {" +
+                "price= " + price + " EUR" +
+                ", typeDrink= " + typeDrink +
+                '}';
     }
 }
 enum Type{

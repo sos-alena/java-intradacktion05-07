@@ -1,17 +1,12 @@
 package homework.lesson14.bilding;
 
-import homework.lesson14.bilding.Building;
-
 public class Score extends Building {
-
-    private final int proceeds;
-
+    private final int proceeds; // Выручка
     public Score(int square, double rate, int proceeds) {
         super(square, rate);
         this.proceeds = proceeds;
-        this.taxes = summTaxes();
-
-    }    @Override
+    }
+    @Override
     public double summTaxes() {
         super.summTaxes();
         if (proceeds > 100) {
@@ -25,7 +20,6 @@ public class Score extends Building {
                 "square = " + square + " m^2" +
                 ", rate = " + rate + " EUR/m^2 " +
                 ", proceeds = " + proceeds + " EUR" +
-                ", taxes= " + taxes + " EUR "
-                +'}';
+                '}';
     }
 }

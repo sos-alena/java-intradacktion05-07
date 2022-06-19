@@ -1,9 +1,7 @@
 package homework.lesson14.bilding;
 
 import java.util.ArrayList;
-
 public class City {
-
     public static void main(String[] args) {
 
         ArrayList<Building> buildings = new ArrayList<>();
@@ -14,7 +12,7 @@ public class City {
         buildings.add(new Score(2000, 3, 80));
 
         for (Building building : buildings) {
-            System.out.println(building);
+            System.out.println(building +  " Taxes: " + building.summTaxes() + " EUR");
         }
     }
 }
