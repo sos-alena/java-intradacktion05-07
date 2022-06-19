@@ -8,7 +8,6 @@ public class Drinkables {
         this.price = calculatePrice();
         this.typeDrink = typeDrink;
     }
-
     public void makingDrink(){
         System.out.println("Choose a drink: ");
         System.out.println("Drink is being prepared....");
@@ -20,7 +19,6 @@ public class Drinkables {
     public int getPrice() {
         return price;
     }
-
     @Override
     public String toString() {
         return "Drinkables {" +
@@ -33,7 +31,9 @@ enum Type{
     LATTE,
     CUPPUCCINO,
     AMERICANO,
-    TEA
+    TEA,
+    STOP
+
 }
 
 

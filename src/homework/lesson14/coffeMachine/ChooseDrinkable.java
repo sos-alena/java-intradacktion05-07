@@ -1,39 +1,37 @@
 package homework.lesson14.coffeMachine;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import static homework.usefulUtilities.getNumber;
-
 public class ChooseDrinkable {
-
-    public static ArrayList<Drinkables> createListDrinkables(Type Type) throws IOException {
+    static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+    public static ArrayList<Drinkables> createListDrinkables() throws IOException {
         ArrayList<Drinkables> drinks = new ArrayList<>();
-        System.out.println("Input number №1 - choose LATTE; " +
-                " Input number №2 - choose CAPPUCCINO; " +
-                " Input number №3 - choose AMERICANO; " +
-                " Input number №4 - choose TEA;"+
-                " Input number №5 - process completed");
+        System.out.println("choose LATTE; " +
+                " choose CUPPUCCINO; " +
+                " choose AMERICANO; " +
+                " choose TEA;" +
+                " choose STOP - process completed");
         Drinkables drink = null;
-        int number = getNumber();
-        while (!(number == 5)) {
-            switch (number) {
-                case 1 -> drink = new Latte(Type.LATTE);
-                case 2 -> drink = new Cappuccino(Type.CUPPUCCINO);
-                case 3 -> drink = new Americano(Type.AMERICANO);
-                case 4 -> drink = new Tea(Type.TEA);
+        Type typeDrink = Type.valueOf(READER.readLine());
+        while (!(typeDrink.equals(Type.STOP))) {
+            switch (typeDrink) {
+                case LATTE -> drink = new Latte(Type.LATTE);
+                case CUPPUCCINO -> drink = new Cappuccino(Type.CUPPUCCINO);
+                case AMERICANO -> drink = new Americano(Type.AMERICANO);
+                case TEA -> drink = new Tea(Type.TEA);
             }
             drink.makingDrink();
             drinks.add(drink);
-            number = getNumber();
+            typeDrink = Type.valueOf(READER.readLine());
         }
-        System.out.println("Process completed!" +
+        System.out.println("Process completed!"+
                 "Get your check");
         System.out.println("-------------------------------------------");
-
         return drinks;
     }
-
     public static void checkPayable(ArrayList<Drinkables> drinkables) {
         int sum = 0;
         for (Drinkables drink : drinkables)
