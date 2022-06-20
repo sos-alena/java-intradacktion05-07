@@ -1,10 +1,10 @@
 package homework.lesson14.coffeMachine;
-public class Drinkables {
+public class Drink {
     private static final int MARKUP = 25; // наценка на напитки
     protected int price;
     protected Type typeDrink;
 
-    public Drinkables(Type typeDrink) {
+    public Drink(Type typeDrink) {
         this.price = calculatePrice();
         this.typeDrink = typeDrink;
     }
@@ -33,7 +33,6 @@ enum Type{
     AMERICANO,
     TEA,
     STOP
-
 }
 
 

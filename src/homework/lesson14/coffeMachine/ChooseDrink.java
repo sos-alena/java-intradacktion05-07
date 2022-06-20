@@ -5,18 +5,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class ChooseDrinkable {
+public class ChooseDrink {
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
-    public static ArrayList<Drinkables> createListDrinkables() throws IOException {
-        ArrayList<Drinkables> drinks = new ArrayList<>();
+    public static ArrayList<Drink> createListDrinkables() throws IOException {
+        ArrayList<Drink> drinks = new ArrayList<>();
         System.out.println("choose LATTE; " +
                 " choose CUPPUCCINO; " +
                 " choose AMERICANO; " +
                 " choose TEA;" +
                 " choose STOP - process completed");
-        Drinkables drink = null;
+        Drink drink = null;
         Type typeDrink = Type.valueOf(READER.readLine());
-        while (!(typeDrink.equals(Type.STOP))) {
+        while (!typeDrink.equals(Type.STOP)) {
             switch (typeDrink) {
                 case LATTE -> drink = new Latte(Type.LATTE);
                 case CUPPUCCINO -> drink = new Cappuccino(Type.CUPPUCCINO);
@@ -27,15 +27,12 @@ public class ChooseDrinkable {
             drinks.add(drink);
             typeDrink = Type.valueOf(READER.readLine());
         }
-        System.out.println("Process completed!"+
-                "Get your check");
-        System.out.println("-------------------------------------------");
         return drinks;
     }
-    public static void checkPayable(ArrayList<Drinkables> drinkables) {
+
+    public static void checkPayable(ArrayList<Drink> drinks) {
         int sum = 0;
-        for (Drinkables drink : drinkables)
-        {
+        for (Drink drink : drinks) {
             System.out.println(drink);
             sum += drink.getPrice();
         }
