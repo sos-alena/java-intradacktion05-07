@@ -1,13 +1,8 @@
 package homework.lesson15;
 
-public class Fahrenheit extends Degrees{
-
-    public Fahrenheit(int degree) {
-        super(degree);
-    }
-
+public class Fahrenheit extends Degrees {
     @Override
-    public void convert() {
-
+    public int convert(int x, String str) {
+        return 0;
     }
 }

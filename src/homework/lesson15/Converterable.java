@@ -1,7 +1,5 @@
 package homework.lesson15;
 
-public interface Converterable {
-
-   void convert();
-
+interface Converterable {
+    int convert(int x, String str);
 }

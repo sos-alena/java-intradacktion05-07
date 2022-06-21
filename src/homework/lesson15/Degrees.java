@@ -3,15 +3,20 @@ package homework.lesson15;
 public abstract class Degrees implements Converterable{
 
     protected int degree;
+    protected Type typeDegree;
 
-    public Degrees(int degree) {
-        this.degree = degree;
-    }
 
     @Override
     public String toString() {
-        return "Degrees{" +
+        return "Degrees{ " +
                 "degree=" + degree +
+                ", typeDegree=" + typeDegree +
                 '}';
     }
+}
+
+enum Type {
+    CELSIUS,
+    FAHRENHEIT,
+    KELVINS
 }

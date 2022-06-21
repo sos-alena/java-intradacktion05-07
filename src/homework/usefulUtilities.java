@@ -23,7 +23,6 @@ public class usefulUtilities {
             return getNumber();
         }
     }
-
     public static int getNumber(int min) throws IOException {
         try {
             int number = Integer.parseInt(READER.readLine());
@@ -39,4 +38,5 @@ public class usefulUtilities {
             return getNumber();
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package homework.lesson14.coffeMachine;
+package homework.lesson14.coffemachina;
 public class Drink {
     private static final int MARKUP = 25; // наценка на напитки
     protected int price;
@@ -9,8 +9,6 @@ public class Drink {
         this.typeDrink = typeDrink;
     }
     public void makingDrink(){
-        System.out.println("Choose a drink: ");
-        System.out.println("Drink is being prepared....");
     }
     public int calculatePrice() {
         price += price * MARKUP / 100;
@@ -21,7 +19,7 @@ public class Drink {
     }
     @Override
     public String toString() {
-        return "Drinkables {" +
+        return "Drink {" +
                 "price= " + price + " EUR" +
                 ", typeDrink= " + typeDrink +
                 '}';
@@ -31,8 +29,7 @@ enum Type{
     LATTE,
     CUPPUCCINO,
     AMERICANO,
-    TEA,
-    STOP
+    TEA
 }
 
 

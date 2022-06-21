@@ -1,4 +1,4 @@
-package homework.lesson14.bilding;
+package homework.lesson14.building;
 
 public class Flat extends Building {
     private final double benefit; //субсидии, процентное выражение к общей сумме налога;
@@ -10,9 +10,11 @@ public class Flat extends Building {
 
     @Override
     public double summTaxes() {
-        double sumbenefit = super.summTaxes() * benefit / 100;
-        return super.summTaxes() - sumbenefit;
+        double tax = super.summTaxes();
+        double sumbenefit = tax * benefit / 100;
+        return tax - sumbenefit;
     }
+
     @Override
     public String toString() {
         return "Flat {" +
