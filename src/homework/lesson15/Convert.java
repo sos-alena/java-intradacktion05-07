@@ -11,11 +11,7 @@ public class Convert {
 
     public static void main(String[] args) throws IOException {
 
-        String massage = "Press ENTER to start or input 'stop' to end: ";
-
-        System.out.println(massage);
-        while (!READER.readLine().equalsIgnoreCase("stop")) {
-
+        do {
             System.out.println("Input degrees Celsius");
             int temp = getNumber();
             System.out.println("Input FAHRENHEIT or KELVINS");
@@ -25,8 +21,9 @@ public class Convert {
             convert.convert(temp);
 
             System.out.println("-----------------------------------");
-            System.out.println(massage);
+            System.out.println("Press ENTER to start or input 'stop' to end.stop");
         }
+        while (!READER.readLine().equalsIgnoreCase("stop"));
     }
 
     public static Converterable createConvert(Type type) {
