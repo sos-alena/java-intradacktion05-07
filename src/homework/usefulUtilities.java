@@ -11,12 +11,7 @@ public class usefulUtilities {
     public static int getNumber() throws IOException {
         try {
             int number = Integer.parseInt(READER.readLine());
-            if (number < 1) {
-                System.out.println("Error. Input number is out of range! ");
-                System.out.println("Enter a number greater than four");
-                return getNumber();
-            }
-            return number;
+           return number;
         } catch (Exception exception) {
             System.out.println("Error: " + exception.getMessage());
             System.out.println("Enter number again");

@@ -11,25 +11,38 @@ public class Convert {
 
     public static void main(String[] args) throws IOException {
 
-        Degrees c = new Celsius();
+        String massage = "Press ENTER to start or input 'stop' to end: ";
 
-        System.out.println("Input degrees Celsius: ");
-        int degree = getNumber();
-        System.out.println("Input FAHRENHEIT or KELVINS: ");
-        String type = String.valueOf(input());
+        System.out.println(massage);
+        while (!READER.readLine().equalsIgnoreCase("stop")) {
 
-        c.convert(degree, type);
+            System.out.println("Input degrees Celsius");
+            int temp = getNumber();
+            System.out.println("Input FAHRENHEIT or KELVINS");
+            Type type = inputType();
+
+            Converterable convert = createConvert(type);
+            convert.convert(temp);
+
+            System.out.println("-----------------------------------");
+            System.out.println(massage);
+        }
     }
 
-    public static Type input() throws IOException {
+    public static Converterable createConvert(Type type) {
+        return switch (type) {
+            case KELVINS -> new Kelvins();
+            case FAHRENHEIT -> new Fahrenheit();
+        };
+    }
+
+    public static Type inputType() {
         try {
             return Type.valueOf(READER.readLine());
-
-        } catch (Exception exception) {
-            System.out.println("Error: " + exception.getMessage());
-            System.out.println("Enter value again");
-            return input();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error value again");
+            return inputType();
         }
     }
 }
-

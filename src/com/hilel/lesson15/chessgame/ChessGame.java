@@ -1,4 +1,4 @@
-package com.hilel.lesson15;
+package com.hilel.lesson15.chessgame;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,16 +26,12 @@ public class ChessGame {
 
     }
     public static ChessItem createChessItem(String chessItemName) {
-        switch (chessItemName) {
-            case "pawn":
-                return new Pawn();
-            case "king":
-                return new King();
-            case "queen":
-                return new Queen();
-            default:
-                throw new IllegalArgumentException("Unknown chess item name " + chessItemName);
-        }
+        return switch (chessItemName) {
+            case "pawn" -> new Pawn();
+            case "king" -> new King();
+            case "queen" -> new Queen();
+            default -> throw new IllegalArgumentException("Unknown chess item name " + chessItemName);
+        };
     }
 
     private static void draw(Drawable drawable) {

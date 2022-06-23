@@ -1,8 +1,10 @@
 package homework.lesson15;
 
-public class Kelvins extends Degrees {
+public class Kelvins implements Converterable {
     @Override
-    public int convert(int x, String str) {
-        return 0;
+    public int convert(int temp) {
+        temp += 273;
+        System.out.println("Degrees Kelvin K " + temp);
+        return temp;
     }
 }

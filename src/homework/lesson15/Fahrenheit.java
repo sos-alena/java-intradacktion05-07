@@ -1,8 +1,9 @@
 package homework.lesson15;
-
-public class Fahrenheit extends Degrees {
+public class Fahrenheit implements Converterable{
     @Override
-    public int convert(int x, String str) {
-        return 0;
+    public int convert(int temp) {
+        int result = temp * 9 / 5 + 32;
+        System.out.println("Degrees Fahrenheit °F = " + result);
+        return result;
     }
 }

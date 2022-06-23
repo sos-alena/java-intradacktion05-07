@@ -1,4 +1,4 @@
-package com.hilel.lesson15;
+package com.hilel.lesson15.chessgame;
 
 public interface Drawable {
     
