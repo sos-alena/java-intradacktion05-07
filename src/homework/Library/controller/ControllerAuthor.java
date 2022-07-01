@@ -4,22 +4,38 @@ import homework.Library.model.Author;
 import homework.Library.model.Book;
 import homework.Library.view.ViewAuthor;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class ControllerAuthor {
-
-Author author;
-Book book;
+    static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+    Author author;
+    Book book;
     ViewAuthor viewA;
+    ArrayList<Author> authors = new ArrayList<>();
 
-    public Author createAuthor() throws IOException {
-        author = new Author();
-        viewA = new ViewAuthor(author);
+    public ArrayList<Author> createAuthor() throws IOException {
 
-        viewA.getInputsGenre();
+        do {
+            author = new Author();
+            viewA = new ViewAuthor(author);
+            authors.add(author);
 
-        return author;
+            viewA.getInputsGenre();
+            System.out.println("Нажмите ENTER что бы продолжить, введите <stop> для завершения");
+
+        }
+        while (!READER.readLine().equalsIgnoreCase("stop"));
+        return authors;
+    }
+    public void deleteAuthor() throws IOException {
+
+            System.out.println("Введите номер строки которую желаете удалить удалить");
+            int x = Integer.parseInt(READER.readLine());
+            authors.remove(x-1);
+            System.out.println("Нажмите ENTER что бы продолжить, введите <stop> для завершения");
     }
 
     public static void printListAuthor(ArrayList<Author> authors) {

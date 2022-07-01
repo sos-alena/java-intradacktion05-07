@@ -9,8 +9,7 @@ import homework.Library.model.Genre;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static homework.Library.Validation.inputValidateName;
-import static homework.Library.Validation.inputValidateYear;
+import static homework.Library.Validation.*;
 
 public class ViewBook {
 
@@ -24,33 +23,38 @@ public class ViewBook {
 
         public Book createBook() throws IOException {
 
-                message = "Введите номер жанра: ";
-                System.out.println(message);
-                int id = inputValidateYear();
-                genre = genres.get(id - 1);
+            message = "Введите номер жанра из списка: ";
+            System.out.println(message);
+            int z = inputValidateYear();
+            genre = genres.get(z - 1);
 
-                message = "Введите номер автора из списка: ";
-                System.out.println(message);
-                int numb = inputValidateYear();
-                author = authors.get(numb - 1);
+            message = "Введите номер автора из списка: ";
+            System.out.println(message);
+            int numb = inputValidateYear();
+            author = authors.get(numb - 1);
 
-                book = new Book(genre, author);
+            book = new Book(genre, author);
 
-                message = "Введите название книги: ";
-                System.out.println(message);
-                String title = inputValidateName();
-                book.setTitle(title);
+            message = "Введитe номер по порядку: ";
+            System.out.println(message);
+            int idb = inputValidateNumber();
+            book.setIdb(idb);
 
-                message = "Введите краткое описание: ";
-                System.out.println(message);
-                String description = inputValidateName();
-                book.setDescription(description);
+            message = "Введите название книги: ";
+            System.out.println(message);
+            String title = inputValidateName();
+            book.setTitle(title);
 
-                message = "Введите год выпуска: ";
-                System.out.println(message);
-                int year = inputValidateYear();
-                book.setYear(year);
+            message = "Введите краткое описание: ";
+            System.out.println(message);
+            String description = inputValidateName();
+            book.setDescription(description);
 
-                return book;
+            message = "Введите год выпуска: ";
+            System.out.println(message);
+            int year = inputValidateYear();
+            book.setYear(year);
+
+            return book;
         }
-    }
+}

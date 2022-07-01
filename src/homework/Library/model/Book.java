@@ -2,6 +2,7 @@ package homework.Library.model;
 
 public class Book {
 
+    int idb;
     String title;
     String description;
     int year;
@@ -14,6 +15,14 @@ public class Book {
     public Book(Genre genre, Author author) {
         this.author = author;
         this.genre = genre;
+    }
+
+    public int getIdb() {
+        return idb;
+    }
+
+    public void setIdb(int idb) {
+        this.idb = idb;
     }
 
     public String getTitle() {

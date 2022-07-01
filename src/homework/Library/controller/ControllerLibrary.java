@@ -14,11 +14,12 @@ import static homework.Library.Validation.inputValidateNumber;
 public class ControllerLibrary {
 
     ControllerGenre controllerG;
-    Genre genre;
     ControllerAuthor controllerA;
-    Author author;
     ConrtollerBook conrtollerB;
+
+    ArrayList<Author> authors;
     ArrayList<Book> books;
+    ArrayList<Genre> genres;
 
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
 
@@ -35,27 +36,43 @@ public class ControllerLibrary {
                 Выберите действие (введите соотвтетствующую цифру):
                 1 - создать жанр.\s
                 2 - создать автора.\s
-                3 - создать список книг.\s""");
+                3 - создать список книг.\s
+                4 - удалить жанр.\s
+                5 - удалить автора.\s
+                6 - удалить книгу.\s""");
+
 
         int numb = inputValidateNumber();
         switch (numb) {
             case 1 -> {
                 controllerG = new ControllerGenre();
-                genre = controllerG.createGenre();
-                System.out.println(genre);
+                genres = controllerG.createGenre();
+                ControllerGenre.printListGenre(genres);
             }
             case 2 -> {
                 controllerA = new ControllerAuthor();
-                author = controllerA.createAuthor();
-                System.out.println(author);
+                authors = controllerA.createAuthor();
+                ControllerAuthor.printListAuthor(authors);
             }
             case 3 -> {
-                System.out.println("Добавить книгу: ");
-                System.out.println();
                 conrtollerB = new ConrtollerBook();
                 books = conrtollerB.createBookList();
                 ConrtollerBook.printBook(books);
+
             }
+            case 4 -> {
+                controllerG.deleteGenre();
+                ControllerGenre.printListGenre(genres);
+            }
+            case 5 -> {
+                controllerA.deleteAuthor();
+                ControllerAuthor.printListAuthor(authors);
+            }
+            case 6 -> {
+                conrtollerB.deleteBook();
+                ConrtollerBook.printBook(books);
+            }
+
             default -> throw new IllegalArgumentException("Unknown chess item name " + numb);
         }
     }

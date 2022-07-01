@@ -14,7 +14,7 @@ public class ConrtollerBook {
 
     Book book;
     ViewBook viewB;
-
+    ArrayList<Book> books = new ArrayList<>();
     public ConrtollerBook() {
     }
 
@@ -29,6 +29,13 @@ public class ConrtollerBook {
         }
         while (!READER.readLine().equalsIgnoreCase("stop"));
         return books;
+    }
+    public void deleteBook() throws IOException {
+
+            System.out.println("Введите номер строки которую желаете удалить удалить");
+            int x = Integer.parseInt(READER.readLine());
+            books.remove(x-1);
+            System.out.println("Нажмите ENTER что бы продолжить, введите <stop> для завершения");
     }
 
     public static void printBook(ArrayList<Book> books) {
