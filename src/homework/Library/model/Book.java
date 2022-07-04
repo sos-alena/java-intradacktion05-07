@@ -11,11 +11,9 @@ public class Book {
 
     public Book() {
     }
-
     public Book(String title) {
         this.title = title;
     }
-
     public Book(Genre genre, Author author) {
         this.author = author;
         this.genre = genre;
@@ -28,7 +26,6 @@ public class Book {
         this.author = author;
         this.genre = genre;
     }
-
     public int getIdb() {
         return id;
     }

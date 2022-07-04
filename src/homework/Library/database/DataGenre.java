@@ -3,7 +3,6 @@ package homework.Library.database;
 import homework.Library.model.Genre;
 
 import java.util.ArrayList;
-
 public class DataGenre {
     public static ArrayList<Genre> GENRES = new ArrayList<>();
     public static int COUNT = 1;

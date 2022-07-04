@@ -31,7 +31,6 @@ public class ControllerLibrary {
     Type type;
     String str;
 
-
     public void chooseActionAuthor() throws IOException {
 
         da = new DataAuthor();

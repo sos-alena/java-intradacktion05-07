@@ -33,7 +33,6 @@ public class Author {
         this.numb = numb;
         return surname;
     }
-
     public void setSurname(String surname) {
         this.surname = surname;
     }
