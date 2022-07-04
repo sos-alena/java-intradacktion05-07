@@ -1,79 +1,149 @@
 package homework.Library.controller;
 
+import homework.Library.Utils;
+import homework.Library.database.DataAuthor;
+import homework.Library.database.DataBook;
+import homework.Library.database.DataGenre;
 import homework.Library.model.Author;
 import homework.Library.model.Book;
 import homework.Library.model.Genre;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import static homework.Library.Validation.inputValidateName;
 import static homework.Library.Validation.inputValidateNumber;
+import static homework.Library.controller.TypeAction.Type;
 
 public class ControllerLibrary {
 
     ControllerGenre controllerG;
     ControllerAuthor controllerA;
-    ConrtollerBook conrtollerB;
+    ControllerBook conrtollerB;
 
-    ArrayList<Author> authors;
-    ArrayList<Book> books;
     ArrayList<Genre> genres;
+    ArrayList<Author> authors;
 
-    static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+    ArrayList<Book> books;
+    DataGenre dg;
+    DataAuthor da;
+    DataBook db;
+    Type type;
+    String str;
 
-    public void listAction() throws IOException {
+
+    public void chooseActionAuthor() throws IOException {
+
+        da = new DataAuthor();
+        authors = da.DataBaseAuthor();
+        controllerA = new ControllerAuthor();
+        controllerA.printListAuthor(authors);
+        System.out.println("_________________________________________");
         do {
-            chooseAction();
-            System.out.println("Нажмите ENTER что бы продолжить, введите <stop> для завершения");
+            System.out.println("choose FIND; " +
+                    " choose CREATE; " +
+                    " choose DELETE; " +
+                    " choose PRINT_ALL;");
+            str = input();
+            type = Type.valueOf(str);
+            switch (type) {
+                case FIND -> controllerA.findAuthor();
+                case CREATE -> controllerA.createAuthor();
+                case DELETE -> controllerA.deleteAuthor();
+                case PRINT_ALL -> controllerA.printListAuthor(authors);
+                default -> throw new IllegalStateException("Unexpected value: " + type);
+            }
+            System.out.println("Нажмите ENTER что бы продолжить выбор действий (FIND, CREATE, DELETE, PRINT_ALL), введите <stop> для завершения");
         }
-        while (!READER.readLine().equalsIgnoreCase("stop"));
-
+        while (!Utils.READER.readLine().equalsIgnoreCase("STOP"));
     }
-    public void chooseAction() throws IOException {
-        System.out.println("""
-                Выберите действие (введите соотвтетствующую цифру):
-                1 - создать жанр.\s
-                2 - создать автора.\s
-                3 - создать список книг.\s
-                4 - удалить жанр.\s
-                5 - удалить автора.\s
-                6 - удалить книгу.\s""");
 
+    public void chooseActionGenre() throws IOException {
 
-        int numb = inputValidateNumber();
-        switch (numb) {
-            case 1 -> {
-                controllerG = new ControllerGenre();
-                genres = controllerG.createGenre();
-                ControllerGenre.printListGenre(genres);
+        dg = new DataGenre();
+        genres = dg.DataBaseGenre();
+        controllerG = new ControllerGenre();
+        controllerG.printListGenre(genres);
+        System.out.println("_______________________________________");
+        do {
+            System.out.println("choose FIND; " +
+                    " choose CREATE; " +
+                    " choose DELETE; " +
+                    " choose PRINT_ALL;");
+            str = input();
+            type = Type.valueOf(str);
+            switch (type) {
+                case FIND -> controllerG.findGenre();
+                case CREATE -> controllerG.createGenre();
+                case DELETE -> controllerG.deleteGenre();
+                case PRINT_ALL -> controllerG.printListGenre(genres);
+                default -> throw new IllegalStateException("Unexpected value: " + type);
             }
-            case 2 -> {
-                controllerA = new ControllerAuthor();
-                authors = controllerA.createAuthor();
-                ControllerAuthor.printListAuthor(authors);
-            }
-            case 3 -> {
-                conrtollerB = new ConrtollerBook();
-                books = conrtollerB.createBookList();
-                ConrtollerBook.printBook(books);
-
-            }
-            case 4 -> {
-                controllerG.deleteGenre();
-                ControllerGenre.printListGenre(genres);
-            }
-            case 5 -> {
-                controllerA.deleteAuthor();
-                ControllerAuthor.printListAuthor(authors);
-            }
-            case 6 -> {
-                conrtollerB.deleteBook();
-                ConrtollerBook.printBook(books);
-            }
-
-            default -> throw new IllegalArgumentException("Unknown chess item name " + numb);
+            System.out.println("Нажмите ENTER что бы продолжить выбор действий (FIND, CREATE, DELETE, PRINT_ALL), введите <stop> для завершения");
         }
+        while (!Utils.READER.readLine().equalsIgnoreCase("STOP"));
+    }
+    public void chooseActionBook() throws IOException {
+        dg = new DataGenre();
+        da = new DataAuthor();
+        db = new DataBook();
+        books = db.DataBaseBook();
+        authors = da.DataBaseAuthor();
+        genres = dg.DataBaseGenre();
+        controllerA = new ControllerAuthor();
+        controllerA.printListAuthor(authors);
+        controllerG = new ControllerGenre();
+        controllerG.printListGenre(genres);
+        conrtollerB = new ControllerBook();
+        conrtollerB.printBook(books);
+
+        System.out.println("_______________________________________");
+        do {
+            System.out.println("choose FIND; " +
+                    " choose CREATE; " +
+                    " choose DELETE; " +
+                    " choose PRINT_ALL;");
+            str = input();
+            type = Type.valueOf(str);
+            switch (type) {
+                case FIND -> conrtollerB.findBook();
+                case CREATE -> conrtollerB.createBookList();
+                case DELETE -> conrtollerB.deleteBook();
+                case PRINT_ALL -> conrtollerB.printBook(books);
+                default -> throw new IllegalStateException("Unexpected value: " + type);
+            }
+            System.out.println("Нажмите ENTER что бы продолжить выбор действий (FIND, CREATE, DELETE, PRINT_ALL), введите <stop> для завершения");
+        }
+        while (!Utils.READER.readLine().equalsIgnoreCase("STOP"));
+    }
+    public static String input() throws IOException {
+        String str;
+        if (((str=inputValidateName()).equals("FIND")) ||
+                (str.equals("CREATE")) ||
+                (str.equals("DELETE")) ||
+                (str.equals("PRINT_ALL")) ||
+                (str.equals("STOP"))) {
+            return str;
+        }
+        System.out.println("Error: ");
+        System.out.println("Enter value again");
+        return input();
+    }
+
+    public void appLibrary() throws IOException {
+        do {
+            System.out.println("введите 1 для выбора - КНИГА; " +
+                    " введите 2 для выбора - АВТОР; " +
+                    " введите 3 для выбора - ЖАНР ");
+
+            int numb = inputValidateNumber();
+            switch (numb) {
+                case 1 -> chooseActionBook();
+                case 2 -> chooseActionAuthor();
+                case 3 -> chooseActionGenre();
+            }
+            System.out.println("Нажмите ENTER что бы продолжить выбор (Жанр, Автор, Книга), введите <stop> для завершения");
+
+        } while (!Utils.READER.readLine().equalsIgnoreCase("stop"));
     }
 }

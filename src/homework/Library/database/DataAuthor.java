@@ -1,57 +1,67 @@
 package homework.Library.database;
 
 import homework.Library.model.Author;
+import homework.Library.model.Book;
 
 import java.util.ArrayList;
 
 public class DataAuthor {
+    public static ArrayList<Author> AUTHORS = new ArrayList<>();
+    public static int COUNT = 1;
 
-    public static ArrayList<Author> createDataBaseAuthor() {
+    public ArrayList<Author> DataBaseAuthor() {
 
-        ArrayList<Author> authors = new ArrayList<>();
-        Author a = new Author();
-        a.setNumb(1);
-        a.setName("Томас");
-        a.setSurname("Манн");
-        authors.add(a);
 
-        Author a2 = new Author();
-        a2.setNumb(2);
-        a2.setName("Герман");
-        a2.setSurname("Гессе");
-        authors.add(a2);
+        ArrayList<Book> booksTM = new ArrayList<>();
+        booksTM.add(new Book("Смерть под парусом"));
+        booksTM.add(new Book("Доктор фауст"));
+        booksTM.add(new Book("Будденброки"));
+        AUTHORS.add(new Author(COUNT++, "Манн", "Томас", booksTM));
 
-        Author a3 = new Author();
-        a3.setNumb(3);
-        a3.setName("Эрнест");
-        a3.setSurname("Хемингуэй");
-        authors.add(a3);
+        ArrayList<Book> booksGG = new ArrayList<>();
+        booksGG.add(new Book("Степной волк"));
+        booksGG.add(new Book("Игра в бисер"));
+        booksGG.add(new Book("Демиан"));
+        AUTHORS.add(new Author(COUNT++, "Гессе", "Герман", booksGG));
 
-        Author a4 = new Author();
-        a4.setNumb(4);
-        a4.setName("Альбер");
-        a4.setSurname("Камю");
-        authors.add(a4);
+        ArrayList<Book> booksEH = new ArrayList<>();
+        booksEH.add(new Book("Старик и море"));
+        booksEH.add(new Book("По ком звонит колокол"));
+        booksEH.add(new Book("Праздник, который всегда с тобой"));
+        AUTHORS.add(new Author(COUNT++, "Хемингуэй", "Эрнест", booksEH));
 
-        Author a5 = new Author();
-        a5.setNumb(5);
-        a5.setName("Агата");
-        a5.setSurname("Кристи");
-        authors.add(a5);
+        ArrayList<Book> booksAK = new ArrayList<>();
+        booksAK.add(new Book("Посторонний"));
+        booksAK.add(new Book("Чума"));
+        booksAK.add(new Book("Падение"));
+        AUTHORS.add(new Author(COUNT++, "Камю", "Альберт", booksAK));
 
-        Author a6 = new Author();
-        a6.setNumb(6);
-        a6.setName("Стивен");
-        a6.setSurname("Кинг");
-        authors.add(a6);
+        ArrayList<Book> booksAKr = new ArrayList<>();
+        booksAKr.add(new Book("Убийство в восточном экспрессе"));
+        booksAKr.add(new Book("Смерь на Ниле"));
+        booksAKr.add(new Book("Скрюченный домишко"));
+        AUTHORS.add(new Author(COUNT++, "Кристи", "Агата", booksAKr));
 
-        Author a7 = new Author();
-        a7.setNumb(7);
-        a7.setName("Джек");
-        a7.setSurname("Лондон");
-        authors.add(a7);
+        ArrayList<Book> booksSK = new ArrayList<>();
+        booksSK.add(new Book("Сияние"));
+        booksSK.add(new Book("Оно"));
+        AUTHORS.add(new Author(COUNT++, "Кинг", "Стивен", booksSK));
 
-        return authors;
+        ArrayList<Book> booksPK = new ArrayList<>();
+        booksPK.add(new Book("Алхимик"));
+        AUTHORS.add(new Author(COUNT++, "Коэльо", "Пауло", booksPK));
+
+        ArrayList<Book> booksGL = new ArrayList<>();
+        booksGL.add(new Book("Белый Клык"));
+        booksGL.add(new Book("Морской волк"));
+        AUTHORS.add(new Author(COUNT++, "Лондон", "Джек", booksGL));
+
+        ArrayList<Book> booksSH = new ArrayList<>();
+        booksSH.add(new Book("Краткая история времени"));
+        AUTHORS.add(new Author(COUNT++, "Хокинг", "Стивен", booksSH));
+
+
+        return AUTHORS;
+
     }
-
 }

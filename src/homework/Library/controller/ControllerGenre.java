@@ -1,49 +1,64 @@
 package homework.Library.controller;
 
+import homework.Library.Utils;
+import homework.Library.database.DataGenre;
 import homework.Library.model.Genre;
 import homework.Library.view.ViewGenre;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+import static homework.Library.Validation.inputValidateName;
+
 public class ControllerGenre {
 
-    static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
-    Genre genre;
-    ViewGenre viewG;
-    ArrayList<Genre> genres = new ArrayList<>();
+    public Genre genre;
+    public ViewGenre viewG;
 
-    public ControllerGenre() {
-    }
+    public boolean findGenre() throws IOException {
 
-    public ArrayList<Genre> createGenre() throws IOException {
+        System.out.println("Поиск жанра по названию. ");
+        System.out.println("---------------------------");
+        System.out.println("Введите название жанра: ");
 
-        do {
-            genre = new Genre();
-            viewG = new ViewGenre(genre);
-            genres.add(genre);
-
-            viewG.getInputsGenre();
-            System.out.println("Нажмите ENTER что бы продолжить, введите <stop> для завершения");
+        String str = inputValidateName();
+        for (Genre g : DataGenre.GENRES) {
+            if (str.equalsIgnoreCase(g.getName())) {
+                System.out.println("Жанр есть в списке" + g);
+                return true;
+            }
         }
-        while (!READER.readLine().equalsIgnoreCase("stop"));
-        return genres;
+        System.out.println("Элемент не найден. Создайте новый жанр.");
+        return false;
     }
+    public ArrayList<Genre> createGenre() throws IOException {
+        if (!findGenre()) {
+            do {
+                genre = new Genre();
+                viewG = new ViewGenre(genre);
 
+                viewG.getInputsGenre();
+                DataGenre.GENRES.add(genre);
+
+                System.out.println("Нажмите ENTER для создания следующего жанра или <stop> для завершения");
+            }
+            while (!Utils.READER.readLine().equalsIgnoreCase("stop"));
+        }
+        printListGenre(DataGenre.GENRES);
+        return DataGenre.GENRES;
+    }
     public void deleteGenre() throws IOException {
 
-        do {
-            System.out.println("Введите номер строки которую желаете удалить удалить");
-            int x = Integer.parseInt(READER.readLine());
-            genres.remove(x-1);
-            System.out.println("Нажмите ENTER что бы продолжить, введите <stop> для завершения");
-        }
-        while (!READER.readLine().equalsIgnoreCase("stop"));
+        System.out.println("Введите номер строки которую желаете удалить удалить");
+        int x = Integer.parseInt(inputValidateName());
+        DataGenre.GENRES.remove(x - 1);
+        printListGenre(DataGenre.GENRES);
     }
 
-    public static void printListGenre(ArrayList<Genre> genres) {
-
+    public void printListGenre(ArrayList<Genre> genres) {
+        System.out.println("-----------------------------------------------------");
+        System.out.println("СПИСОК ЖАНРОВ: ");
+        System.out.println("------------------------------------------------------");
         for (Genre genre : genres) {
             System.out.println(genre);
         }

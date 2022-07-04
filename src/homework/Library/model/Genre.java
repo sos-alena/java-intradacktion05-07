@@ -1,9 +1,22 @@
 package homework.Library.model;
 
 public class Genre {
-    public int id;
-    public String name;
-    public String description;
+    protected int id;
+    protected String name;
+    protected String description;
+
+    public Genre(int id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
+    public Genre(String name) {
+        this.name = name;
+    }
+
+    public Genre() {
+    }
 
     public int getId() {
         return id;
@@ -21,7 +34,6 @@ public class Genre {
         this.id = id;
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -36,9 +48,11 @@ public class Genre {
 
     @Override
     public String toString() {
-        return " №id: " + id + "; "
-                + " НАЗВАНИЕ: " + name + "\n"
-                + "КРАТКОЕ ОПИСАНИЕ: " + description + "----------------------------";
+        String idinfo = this.id != 0 ? " id:" + id + " " : " ";
+        String descriptioninfo = this.description != null ? "; КРАТКОЕ ОПИСАНИЕ: " + description : " ";
+        return idinfo
+                + name
+                + descriptioninfo + "";
     }
 
 }

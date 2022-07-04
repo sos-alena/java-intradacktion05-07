@@ -1,49 +1,81 @@
 package homework.Library.controller;
 
+import homework.Library.Utils;
+import homework.Library.database.DataAuthor;
 import homework.Library.model.Author;
 import homework.Library.model.Book;
 import homework.Library.view.ViewAuthor;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import static homework.Library.Validation.inputValidateName;
+
 public class ControllerAuthor {
-    static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
-    Author author;
-    Book book;
-    ViewAuthor viewA;
-    ArrayList<Author> authors = new ArrayList<>();
 
-    public ArrayList<Author> createAuthor() throws IOException {
+    public Author author;
+    public ViewAuthor viewA;
 
-        do {
-            author = new Author();
-            viewA = new ViewAuthor(author);
-            authors.add(author);
+    public boolean findAuthor() throws IOException {
 
-            viewA.getInputsGenre();
-            System.out.println("Нажмите ENTER что бы продолжить, введите <stop> для завершения");
+        System.out.println("Поиск автора по фамилии. ");
+        System.out.println("---------------------------");
+        System.out.println("Введите фамилию автора: ");
 
+        String str = inputValidateName();
+        for (Author a : DataAuthor.AUTHORS) {
+            if (str.equalsIgnoreCase(a.getSurname())) {
+                System.out.println("Автор есть в списке: " + a);
+                return true;
+            }
         }
-        while (!READER.readLine().equalsIgnoreCase("stop"));
-        return authors;
+        System.out.println("Элемент не найден. Создайте новый элемент.");
+        return false;
     }
+
+    public ArrayList<Book> createBookListAuthor() throws IOException {
+        ArrayList<Book> books = new ArrayList<>();
+        do {
+            System.out.println("Введите название книги: ");
+            String title = inputValidateName();
+            Book book = new Book(title);
+            books.add(book);
+            System.out.println("Для добавления книге 'Список литературы' нажмите ENTER или <stop> для завершения");
+
+        } while (!Utils.READER.readLine().equalsIgnoreCase("stop"));
+        return books;
+    }
+
+    public void createAuthor() throws IOException {
+        if (!findAuthor()) {
+            do {
+                ArrayList<Book> books = createBookListAuthor();
+                author = new Author(books);
+                viewA = new ViewAuthor(author);
+                viewA.getInputsGenre();
+                DataAuthor.AUTHORS.add(author);
+
+                System.out.println("Нажмите ENTER для создания нового автора или <stop> для завершения");
+            }
+            while (!Utils.READER.readLine().equalsIgnoreCase("stop"));
+        }
+        printListAuthor(DataAuthor.AUTHORS);
+    }
+
     public void deleteAuthor() throws IOException {
 
-            System.out.println("Введите номер строки которую желаете удалить удалить");
-            int x = Integer.parseInt(READER.readLine());
-            authors.remove(x-1);
-            System.out.println("Нажмите ENTER что бы продолжить, введите <stop> для завершения");
+        System.out.println("Введите номер строки которую желаете удалить удалить");
+        int x = Integer.parseInt(inputValidateName());
+        DataAuthor.AUTHORS.remove(x - 1);
+        printListAuthor(DataAuthor.AUTHORS);
     }
 
-    public static void printListAuthor(ArrayList<Author> authors) {
-
+    public void printListAuthor(ArrayList<Author> authors) {
+        System.out.println("-----------------------------------------------------");
+        System.out.println("СПИСОК АВТОРОВ: ");
+        System.out.println("------------------------------------------------------");
         for (Author author : authors) {
-
             System.out.println(author);
-
         }
     }
 }

@@ -2,27 +2,39 @@ package homework.Library.model;
 
 public class Book {
 
-    int idb;
-    String title;
-    String description;
-    int year;
-    Author author;
-    Genre genre;
+    protected int id;
+    protected String title;
+    protected String description;
+    protected int year;
+    protected Author author;
+    protected Genre genre;
 
     public Book() {
+    }
+
+    public Book(String title) {
+        this.title = title;
     }
 
     public Book(Genre genre, Author author) {
         this.author = author;
         this.genre = genre;
     }
+    public Book(int id, String title, String description, int year, Author author, Genre genre) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.year = year;
+        this.author = author;
+        this.genre = genre;
+    }
 
     public int getIdb() {
-        return idb;
+        return id;
     }
 
     public void setIdb(int idb) {
-        this.idb = idb;
+        this.id = idb;
     }
 
     public String getTitle() {
@@ -30,6 +42,7 @@ public class Book {
     }
 
     public void setTitle(String title) {
+
         this.title = title;
     }
 
@@ -67,11 +80,14 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "Название книги: " + title + '\''
-                + ", год выпуска: " + year +
-                ", Автор: " + author.surname + " " + author.name +
-                ", Жанр: " + genre.name +
-                '}';
-    }
+        String idinfo = this.id != 0 ? "id " + id + "; " : "";
+        String yearinfo = this.year != 0 ? "год выпуска - " + year : "";
+        String autorinfo = this.author != null ? " [автор:" + author + "]" : "";
+        String genreinfo = this.genre != null ? " [жанр: " + genre + "]" : "";
+        return  idinfo + " '" +
+                title + "' " +
+                yearinfo +
+                autorinfo +
+                genreinfo;
+      }
 }
