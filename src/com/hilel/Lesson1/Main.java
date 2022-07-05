@@ -14,7 +14,7 @@ public class Main {
         System.out.print(" The same line");
         System.out.println();
         System.out.println("row 2");
-
+        System.out.println("row 3");
 
     }
 }
