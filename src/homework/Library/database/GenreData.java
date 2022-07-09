@@ -1,12 +1,12 @@
-package homework.Library.database;
+package homework.library.database;
 
-import homework.Library.model.Genre;
+import homework.library.model.Genre;
 
 import java.util.ArrayList;
-public class DataGenre {
+public class GenreData {
     public static ArrayList<Genre> GENRES = new ArrayList<>();
     public static int COUNT = 1;
-    public ArrayList<Genre> DataBaseGenre() {
+    public static ArrayList<Genre> genreDataBase() {
 
         GENRES.add(new Genre(COUNT++, "Детектив", """
                 жанр, описывающий процесс

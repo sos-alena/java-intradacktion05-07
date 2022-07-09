@@ -1,14 +1,14 @@
-package homework.Library.database;
+package homework.library.database;
 
-import homework.Library.model.Author;
-import homework.Library.model.Book;
+import homework.library.model.Author;
+import homework.library.model.Book;
 
 import java.util.ArrayList;
 
-public class DataAuthor {
+public class AuthorData {
     public static ArrayList<Author> AUTHORS = new ArrayList<>();
     public static int COUNT = 1;
-    public ArrayList<Author> DataBaseAuthor() {
+    public static ArrayList<Author> authorDataBase() {
 
         ArrayList<Book> booksTM = new ArrayList<>();
         booksTM.add(new Book("Смерть под парусом"));
@@ -57,7 +57,6 @@ public class DataAuthor {
         ArrayList<Book> booksSH = new ArrayList<>();
         booksSH.add(new Book("Краткая история времени"));
         AUTHORS.add(new Author(COUNT++, "Хокинг", "Стивен", booksSH));
-
-        return AUTHORS;
+       return AUTHORS;
     }
 }
