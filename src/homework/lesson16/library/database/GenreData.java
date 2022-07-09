@@ -1,6 +1,6 @@
-package homework.library.database;
+package homework.lesson16.library.database;
 
-import homework.library.model.Genre;
+import homework.lesson16.library.model.Genre;
 
 import java.util.ArrayList;
 public class GenreData {

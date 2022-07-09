@@ -1,14 +1,14 @@
-package homework.library.controller;
+package homework.lesson16.library.controller;
 
-import homework.library.database.AuthorData;
-import homework.library.model.Author;
-import homework.library.model.Book;
+import homework.lesson16.library.database.AuthorData;
+import homework.lesson16.library.model.Author;
+import homework.lesson16.library.model.Book;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static homework.library.Validation.inputValidateNumber;
-import static homework.library.Validation.inputValidateStr;
+import static homework.lesson16.library.Validation.inputValidateNumber;
+import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class AuthorController {
     protected Author author;

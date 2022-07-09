@@ -1,13 +1,13 @@
-package homework.library.controller;
+package homework.lesson16.library.controller;
 
-import homework.library.database.GenreData;
-import homework.library.model.Genre;
+import homework.lesson16.library.database.GenreData;
+import homework.lesson16.library.model.Genre;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static homework.library.Validation.inputValidateNumber;
-import static homework.library.Validation.inputValidateStr;
+import static homework.lesson16.library.Validation.inputValidateNumber;
+import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class GenreController {
     protected Genre genre;

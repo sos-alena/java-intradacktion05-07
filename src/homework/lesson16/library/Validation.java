@@ -1,8 +1,10 @@
-package homework.library;
+package homework.lesson16.library;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+
 public class Validation {
 
     static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
@@ -15,9 +17,10 @@ public class Validation {
         }
         return str;
     }
+
     public static int inputValidateNumber(int min, int max) {
         try {
-            int number = Integer.parseInt(READER.readLine().trim());
+            int number = Integer.parseInt(READER.readLine());
             if (number <= min || number > max) {
                 System.out.println("Неверное значение: " + number);
                 System.out.println("Введите значение снова: ");

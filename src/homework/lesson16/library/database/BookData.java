@@ -1,8 +1,8 @@
-package homework.library.database;
+package homework.lesson16.library.database;
 
-import homework.library.model.Author;
-import homework.library.model.Book;
-import homework.library.model.Genre;
+import homework.lesson16.library.model.Author;
+import homework.lesson16.library.model.Book;
+import homework.lesson16.library.model.Genre;
 
 import java.util.ArrayList;
 public class BookData {

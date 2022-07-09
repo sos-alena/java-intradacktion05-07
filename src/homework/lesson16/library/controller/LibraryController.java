@@ -1,18 +1,18 @@
-package homework.library.controller;
+package homework.lesson16.library.controller;
 
-import homework.library.database.AuthorData;
-import homework.library.database.BookData;
-import homework.library.database.GenreData;
-import homework.library.model.Author;
-import homework.library.model.Book;
-import homework.library.model.Genre;
+import homework.lesson16.library.database.AuthorData;
+import homework.lesson16.library.database.BookData;
+import homework.lesson16.library.database.GenreData;
+import homework.lesson16.library.model.Author;
+import homework.lesson16.library.model.Book;
+import homework.lesson16.library.model.Genre;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import static homework.library.Validation.inputValidateStr;
+import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class LibraryController {
 
@@ -23,14 +23,14 @@ public class LibraryController {
     private Type type;
     private Item item;
 
-
     public void ran() throws IOException {
-        System.out.println("Нажмите ENTER для начала работы с программой или два раза введите STOP для ее завершения");
-        while (!READER.readLine().equalsIgnoreCase("STOP"))
-        {
-           itemLibrary();
+        System.out.println("Нажмите ENTER для начала работы с программой " +
+                "или два раза введите STOP для ее завершения");
+        while (!READER.readLine().equalsIgnoreCase("STOP")) {
+            itemLibrary();
         }
     }
+
     public void itemLibrary() throws IOException {
 
             System.out.println("choose AUTHOR; " +

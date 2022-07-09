@@ -1,7 +1,7 @@
-package homework.library.database;
+package homework.lesson16.library.database;
 
-import homework.library.model.Author;
-import homework.library.model.Book;
+import homework.lesson16.library.model.Author;
+import homework.lesson16.library.model.Book;
 
 import java.util.ArrayList;
 
