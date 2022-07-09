@@ -1,14 +1,14 @@
-package homework.Library.database;
+package homework.library.database;
 
-import homework.Library.model.Author;
-import homework.Library.model.Book;
-import homework.Library.model.Genre;
+import homework.library.model.Author;
+import homework.library.model.Book;
+import homework.library.model.Genre;
 
 import java.util.ArrayList;
-public class DataBook {
+public class BookData {
     public static ArrayList<Book> BOOKS = new ArrayList<>();
     public static int COUNT = 1;
-    public ArrayList<Book> DataBaseBook() {
+    public static ArrayList<Book> bookDataBase() {
 
         BOOKS.add(new Book(COUNT++, "Доктор фауст", "Классическая история гения," +
                 " продавшего душу дьяволу, вписанная в историю Германии" +
