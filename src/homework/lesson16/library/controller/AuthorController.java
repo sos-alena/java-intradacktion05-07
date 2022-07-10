@@ -11,9 +11,7 @@ import static homework.lesson16.library.Validation.inputValidateNumber;
 import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class AuthorController {
-    private Author author;
-    private ArrayList<Author> authors;
-
+    private final ArrayList<Author> authors;
     public AuthorController(ArrayList<Author> authors) {
         this.authors = authors;
     }
@@ -51,7 +49,7 @@ public class AuthorController {
         public void authorCreate() throws IOException {
 
                 ArrayList<Book> books = authorCreateListBook();
-                    author = new Author(books);
+            Author author = new Author(books);
                     int id = AuthorData.COUNT++;
                     author.setId(id);
 

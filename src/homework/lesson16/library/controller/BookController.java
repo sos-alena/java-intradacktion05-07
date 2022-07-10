@@ -12,9 +12,7 @@ import static homework.lesson16.library.Validation.inputValidateNumber;
 import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class BookController {
-
-    private Book book;
-    private ArrayList<Book> books;
+    private final ArrayList<Book> books;
 
     public BookController(ArrayList<Book> books) {
         this.books = books;
@@ -51,7 +49,7 @@ public class BookController {
         Author author = authors.get(numb - 1);
         author = new Author(author.getSurname(numb - 1), author.getName(numb - 1));
 
-        book = new Book(genre, author);
+        Book book = new Book(genre, author);
 
         int id = BookData.COUNT++;
         book.setIdb(id);

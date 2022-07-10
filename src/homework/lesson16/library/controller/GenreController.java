@@ -10,8 +10,7 @@ import static homework.lesson16.library.Validation.inputValidateNumber;
 import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class GenreController {
-    private Genre genre;
-    private ArrayList<Genre> genres;
+    private final ArrayList<Genre> genres;
 
     public GenreController(ArrayList<Genre> genres) {
         this.genres = genres;
@@ -34,7 +33,7 @@ public class GenreController {
     }
     public void genreCreate() throws IOException {
 
-        genre = new Genre();
+        Genre genre = new Genre();
 
         int id = GenreData.COUNT++;
         genre.setId(id);
