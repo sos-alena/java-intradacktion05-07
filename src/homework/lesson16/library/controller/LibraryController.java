@@ -17,12 +17,11 @@ import static homework.lesson16.library.Validation.inputValidateStr;
 public class LibraryController {
 
     public static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+
     private final ArrayList<Author> authors = AuthorData.authorDataBase();
     private final ArrayList<Genre> genres = GenreData.genreDataBase();
     private final ArrayList<Book> books = BookData.bookDataBase();
-    private Type type;
-    private Item item;
-
+    public Type type;
     public void ran() throws IOException {
         System.out.println("Нажмите ENTER для начала работы с программой " +
                 "или STOP для ее завершения");
@@ -35,7 +34,7 @@ public class LibraryController {
             System.out.println("input AUTHOR; " +
                     " choose GENRE; " +
                     " choose BOOK; ");
-           item = inputItem();
+          Item item = inputItem();
         switch (item) {
             case AUTHOR -> authorChooseAction();
             case GENRE -> genreChoose();
@@ -67,8 +66,7 @@ public class LibraryController {
                 " choose DELETE; " +
                 " choose PRINT_ALL;" +
                 " choose EXIT");
-        type = inputType();
-        switch (type) {
+        switch (type = inputType()) {
             case FIND -> genreController.genreFind();
             case CREATE -> genreController.genreCreate();
             case DELETE -> genreController.genreDelete();
@@ -86,8 +84,7 @@ public class LibraryController {
                 " choose DELETE; " +
                 " choose PRINT_ALL;" +
                 " choose EXIT");
-        type = inputType();
-        switch (type) {
+        switch (type = inputType()) {
             case FIND -> bookController.bookFind();
             case CREATE -> bookController.bookCreate(genres, authors);
             case DELETE -> bookController.bookDelete();
