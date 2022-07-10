@@ -1,9 +1,9 @@
 package homework.lesson16.library.model;
 
 public class Genre {
-    protected int id;
-    protected String name;
-    protected String description;
+    private int id;
+    private String name;
+    private String description;
 
     public Genre(int id, String name, String description) {
         this.id = id;
@@ -15,9 +15,6 @@ public class Genre {
         this.name = name;
     }
     public Genre() {
-    }
-    public int getId() {
-        return id;
     }
 
     public void setId(int id) {
@@ -36,10 +33,6 @@ public class Genre {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -52,5 +45,4 @@ public class Genre {
                 + name
                 + descriptioninfo + "";
     }
-
 }

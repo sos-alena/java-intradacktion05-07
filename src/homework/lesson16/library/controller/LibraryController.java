@@ -16,7 +16,7 @@ import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class LibraryController {
 
-    static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+    public static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
     private final ArrayList<Author> authors = AuthorData.authorDataBase();
     private final ArrayList<Genre> genres = GenreData.genreDataBase();
     private final ArrayList<Book> books = BookData.bookDataBase();
@@ -25,23 +25,22 @@ public class LibraryController {
 
     public void ran() throws IOException {
         System.out.println("Нажмите ENTER для начала работы с программой " +
-                "или два раза введите STOP для ее завершения");
+                "или STOP для ее завершения");
         while (!READER.readLine().equalsIgnoreCase("STOP")) {
             itemLibrary();
         }
     }
-
     public void itemLibrary() throws IOException {
 
-            System.out.println("choose AUTHOR; " +
+            System.out.println("input AUTHOR; " +
                     " choose GENRE; " +
                     " choose BOOK; ");
-            item = inputItem();
-            switch (item) {
-                case AUTHOR -> authorChooseAction();
-                case GENRE -> genreChoose();
-                case BOOK -> bookChoose();
-            }
+           item = inputItem();
+        switch (item) {
+            case AUTHOR -> authorChooseAction();
+            case GENRE -> genreChoose();
+            case BOOK -> bookChoose();
+        }
     }
 
     public void authorChooseAction() throws IOException {
@@ -51,14 +50,14 @@ public class LibraryController {
                 " choose DELETE; " +
                 " choose PRINT_ALL;" +
                 " choose EXIT");
-        type = inputType();
-        switch (type) {
+        switch (type = inputType()) {
             case FIND -> authorController.authorFind();
             case CREATE -> authorController.authorCreate();
             case DELETE -> authorController.authorDelete();
             case PRINT_ALL -> authorController.authorPrintList();
             case EXIT -> ran();
-        }
+
+        } System.out.println("Для продолжения нажмите ENTER или STOP для завершения программы.");
     }
 
     public void genreChoose() throws IOException {
@@ -75,7 +74,7 @@ public class LibraryController {
             case DELETE -> genreController.genreDelete();
             case PRINT_ALL -> genreController.genrePrintList();
             case EXIT -> ran();
-        }
+        } System.out.println("Для продолжения нажмите ENTER или STOP для завершения программы.");
     }
     public void bookChoose() throws IOException {
         BookController bookController = new BookController(books);
@@ -94,7 +93,7 @@ public class LibraryController {
             case DELETE -> bookController.bookDelete();
             case PRINT_ALL -> bookController.bookPrint();
             case EXIT -> ran();
-        }
+        } System.out.println("Для продолжения нажмите ENTER или STOP для завершения программы.");
     }
 
     public static Type inputType() {

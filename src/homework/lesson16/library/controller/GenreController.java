@@ -10,13 +10,13 @@ import static homework.lesson16.library.Validation.inputValidateNumber;
 import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class GenreController {
-    protected Genre genre;
-    protected ArrayList<Genre> genres;
+    private Genre genre;
+    private ArrayList<Genre> genres;
 
     public GenreController(ArrayList<Genre> genres) {
         this.genres = genres;
     }
-    protected Genre genreFind() throws IOException {
+    public Genre genreFind() throws IOException {
 
         System.out.println("Поиск жанра по названию. ");
         System.out.println("---------------------------");
@@ -32,7 +32,7 @@ public class GenreController {
         System.out.println("Элемент не найден. Создайте новый жанр.");
         return null;
     }
-    protected void genreCreate() throws IOException {
+    public void genreCreate() throws IOException {
 
         genre = new Genre();
 
@@ -50,7 +50,7 @@ public class GenreController {
         System.out.println(genre);
 
     }
-    protected void genreDelete(){
+    public void genreDelete(){
 
         System.out.println("Введите номер строки которую желаете удалить удалить");
         int x = inputValidateNumber(0, genres.size());
@@ -58,7 +58,7 @@ public class GenreController {
         System.out.println("Строка - " + x + " удалена!");
         genrePrintList();
     }
-    protected void genrePrintList() {
+    public void genrePrintList() {
         System.out.println("-----------------------------------------------------");
         System.out.println("СПИСОК ЖАНРОВ: ");
         System.out.println("------------------------------------------------------");

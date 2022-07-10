@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 public class Author {
 
-    public int numb;
+    private int id;
     private String surname;
     private String name;
     private ArrayList<Book> books;
-    public Author() {
-    }
-    public Author(int numb, String surname, String name, ArrayList<Book> books) {
-        this.numb = numb;
+
+    public Author(int id, String surname, String name, ArrayList<Book> books) {
+        this.id = id;
         this.surname = surname;
         this.name = name;
         this.books = books;
@@ -26,40 +25,42 @@ public class Author {
         this.books = books;
     }
 
+    public String getSurname(int id) {
+        this.id = id;
+        return surname;
+    }
+
+    public String getName(int id) {
+        this.id = id;
+        return name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getSurname() {
         return surname;
     }
-    public String getSurname(int numb) {
-        this.numb = numb;
-        return surname;
-    }
+
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
     public String getName() {
         return name;
     }
 
-    public String getName(int numb) {
-        this.numb = numb;
-        return name;
-    }
     public void setName(String name) {
         this.name = name;
-    }
-    public int getNumb() {
-        return numb;
-    }
-    public void setNumb(int numb) {
-        this.numb = numb;
     }
 
     @Override
     public String toString() {
-        String bookinfo = this.books != null ? "; СПИСОК ЛИТЕРАТУРЫ: - " + books : "";
-        String idinfo = this.numb != 0 ? " id: " + numb :"";
+        String booksinfo = this.books != null ? "; СПИСОК ЛИТЕРАТУРЫ: - " + books : "";
+        String idinfo = this.id != 0 ? " id: " + id : "";
         return idinfo +
                 "; ФИО Автора: " + name + " " + surname +
-               bookinfo;
+                booksinfo;
     }
 }

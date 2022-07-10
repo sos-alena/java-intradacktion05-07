@@ -13,14 +13,14 @@ import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class BookController {
 
-    protected Book book;
-    protected ArrayList<Book> books;
+    private Book book;
+    private ArrayList<Book> books;
 
     public BookController(ArrayList<Book> books) {
         this.books = books;
     }
 
-    protected Book bookFind() throws IOException {
+    public Book bookFind() throws IOException {
 
         System.out.println("Поиск по названию. ");
         System.out.println("---------------------------");
@@ -36,7 +36,7 @@ public class BookController {
         System.out.println("Элемент не найден. Создайте новый элемент.");
         return null;
     }
-    protected void bookCreate(ArrayList<Genre> genres, ArrayList<Author> authors) throws IOException {
+    public Book bookCreate(ArrayList<Genre> genres, ArrayList<Author> authors) throws IOException {
         GenreController genreController = new GenreController(genres);
         genreController.genrePrintList();
         System.out.println("Введите номер жанра из списка: ");
@@ -70,9 +70,11 @@ public class BookController {
 
         books.add(book);
         System.out.println(book);
+
+        return book;
     }
 
-    protected ArrayList<Book> bookDelete() throws IOException {
+    public ArrayList<Book> bookDelete() throws IOException {
 
         System.out.println("Введите название книги которую желаете удалить: ");
         String str = inputValidateStr();
@@ -86,7 +88,7 @@ public class BookController {
         return books;
     }
 
-    protected void bookPrint() {
+    public void bookPrint() {
         System.out.println("-----------------------------------------------------");
         System.out.println("СПИСОК КНИГ: ");
         System.out.println("------------------------------------------------------");

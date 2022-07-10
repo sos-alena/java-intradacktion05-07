@@ -7,3 +7,4 @@ public enum Type {
     PRINT_ALL,
     EXIT
 }
+

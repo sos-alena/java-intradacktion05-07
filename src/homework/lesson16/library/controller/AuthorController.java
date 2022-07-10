@@ -11,14 +11,14 @@ import static homework.lesson16.library.Validation.inputValidateNumber;
 import static homework.lesson16.library.Validation.inputValidateStr;
 
 public class AuthorController {
-    protected Author author;
-    protected ArrayList<Author> authors;
+    private Author author;
+    private ArrayList<Author> authors;
 
     public AuthorController(ArrayList<Author> authors) {
         this.authors = authors;
     }
 
-    protected Author authorFind() throws IOException {
+    public Author authorFind() throws IOException {
         System.out.println("Поиск автора по фамилии. ");
         System.out.println("---------------------------");
         System.out.println("Введите фамилию автора: ");
@@ -34,7 +34,7 @@ public class AuthorController {
         return null;
     }
 
-    protected ArrayList<Book> authorCreateListBook() throws IOException {
+    public ArrayList<Book> authorCreateListBook() throws IOException {
         ArrayList<Book> books = new ArrayList<>();
         do {
             System.out.println("Для создания нового автора создайте список его произведений. " +
@@ -48,12 +48,12 @@ public class AuthorController {
         } while (!inputValidateStr().equalsIgnoreCase("stop"));
         return books;
     }
-    protected void authorCreate() throws IOException {
+        public void authorCreate() throws IOException {
 
                 ArrayList<Book> books = authorCreateListBook();
                     author = new Author(books);
                     int id = AuthorData.COUNT++;
-                    author.setNumb(id);
+                    author.setId(id);
 
                     System.out.println("Введитe фамилию автора: ");
                     String surname = inputValidateStr();
@@ -66,9 +66,8 @@ public class AuthorController {
 
                     authors.add(author);
                     System.out.println("Автор создан и добавлен в базу данных");
-
     }
-    protected void authorDelete(){
+    public void authorDelete(){
 
         System.out.println("Введите номер строки которую желаете удалить удалить");
         int x = inputValidateNumber(0, authors.size());
@@ -76,7 +75,7 @@ public class AuthorController {
         System.out.println("Строка - " + x + " удалена!");
         authorPrintList();
     }
-    protected void authorPrintList() {
+    public void authorPrintList() {
         System.out.println("-----------------------------------------------------");
         System.out.println("СПИСОК АВТОРОВ: ");
         System.out.println("------------------------------------------------------");

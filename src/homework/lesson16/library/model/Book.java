@@ -2,15 +2,13 @@ package homework.lesson16.library.model;
 
 public class Book {
 
-    protected int id;
-    protected String title;
-    protected String description;
-    protected int year;
-    protected Author author;
-    protected Genre genre;
+    private int id;
+    private String title;
+    private String description;
+    private int year;
+    private Author author;
+    private Genre genre;
 
-    public Book() {
-    }
     public Book(String title) {
         this.title = title;
     }
@@ -26,10 +24,6 @@ public class Book {
         this.author = author;
         this.genre = genre;
     }
-    public int getIdb() {
-        return id;
-    }
-
     public void setIdb(int idb) {
         this.id = idb;
     }
@@ -42,37 +36,12 @@ public class Book {
 
         this.title = title;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public int getYear() {
-        return year;
-    }
-
     public void setYear(int year) {
         this.year = year;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public void setGenre(Genre genre) {
-        this.genre = genre;
     }
 
     @Override
